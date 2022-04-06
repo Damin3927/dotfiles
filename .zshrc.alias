@@ -1,0 +1,13 @@
+# ls
+alias l='ls -1A'
+alias ll='ls -lh'
+alias la='ll -A'
+
+# mkdir
+alias mkdir='mkdir -p'
+
+# rm
+alias rm='rm -i'
+
+# pbcopy
+alias c='pbcopy'

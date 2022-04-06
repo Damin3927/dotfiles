@@ -55,3 +55,6 @@ zstyle :compinstall filename '/Users/damin/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+
+[ -f './.zshrc.alias' ] source ./.zshrc.alias
