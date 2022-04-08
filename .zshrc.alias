@@ -11,3 +11,6 @@ alias rm='rm -i'
 
 # pbcopy
 alias c='pbcopy'
+
+# easy edit for zshrc
+alias zshrc='vim zshrd'
