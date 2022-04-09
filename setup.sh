@@ -9,7 +9,7 @@ do
   fi
 done
 
-source_template_str="[ -f '~/.zshrc.template' ] && source ~/.zshrc.template"
+source_template_str="[ -f ~/.zshrc.template ] && source ~/.zshrc.template"
 
 if ! grep -q "$source_template_str" ~/.zshrc; then
   echo "# zshrc template alias\n$source_template_str\n\n$(cat ~/.zshrc)" > ~/.zshrc

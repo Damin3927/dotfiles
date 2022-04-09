@@ -3,7 +3,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 
 # aliases
-[ -f './.zshrc.alias' ] && source ./.zshrc.alias
+if [ -f ~/.zshrc.alias ]; then
+  source ~/.zshrc.alias
+fi
 
 # options
-[ -f './.zshrc.options' ] && source ./.zshrc.options
+if [ -f ~/.zshrc.option ]; then
+  source ~/.zshrc.option
+fi
