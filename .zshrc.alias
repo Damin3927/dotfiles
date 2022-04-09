@@ -14,3 +14,7 @@ alias c='pbcopy'
 
 # easy edit for zshrc
 alias zshrc='vim zshrd'
+
+# Ruby on Rails
+alias rails='bundle exec rails'
+alias rspec='bundle exec rspec'
