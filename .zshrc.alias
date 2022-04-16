@@ -13,7 +13,7 @@ alias rm='rm -i'
 alias c='pbcopy'
 
 # easy edit for zshrc
-alias zshrc='vim zshrd'
+alias zshrc='vim ~/.zshrc'
 
 # Ruby on Rails
 alias rails='bundle exec rails'
