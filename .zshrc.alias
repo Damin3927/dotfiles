@@ -15,6 +15,9 @@ alias c='pbcopy'
 # easy edit for zshrc
 alias zshrc='vim ~/.zshrc'
 
+# re-login
+alias relogin='exec $SHELL -l'
+
 # Ruby on Rails
 alias rails='bundle exec rails'
 alias rspec='bundle exec rspec'

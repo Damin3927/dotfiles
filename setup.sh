@@ -2,8 +2,7 @@
 
 link_files=(".zshrc.template" ".zshrc.option" ".zshrc.alias")
 
-for link_file in ${link_files[@]}
-do
+for link_file in ${link_files[@]}; do
   if [ ! -f ~/$link_file ]; then
     ln -s "$(pwd)/$link_file" ~/$link_file
   fi
