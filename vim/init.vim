@@ -71,6 +71,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " fugitive
 Plug 'tpope/vim-fugitive'
 
+" auto brackets/quotes
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 
@@ -83,5 +86,4 @@ nnoremap <C-n> :Fern . -drawer
 
 " Set fern renderer to nerdfont
 let g:fern#renderer = "nerdfont"
-
 
