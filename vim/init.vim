@@ -4,6 +4,9 @@ scriptencoding utf-8
 " enable plugin/indent by file type
 filetype plugin indent on
 
+" Auto reload of init.vim
+autocmd! bufwritepost $MYVIMRC source %
+
 " ---------
 "  Letters
 " ---------
@@ -76,6 +79,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " fugitive
 Plug 'tpope/vim-fugitive'
 
+" CursorHold event (cuz native CursorHold event doesn't work in NeoVim)
+Plug 'antoinemadec/FixCursorHold.nvim'
+
 
 call plug#end()
 
@@ -99,6 +105,15 @@ let g:coc_global_extensions = [
   \'coc-pyright',
   \'coc-rust-analyzer',
   \'coc-pairs',
+  \'coc-sh',
+  \'coc-css',
+  \'coc-go',
+  \'coc-html',
+  \'coc-java',
+  \'coc-markdownlint',
+  \'coc-solargraph',
+  \'coc-solidity',
+  \'coc-vetur',
   \'coc-tsserver'
 \]
 
@@ -115,6 +130,9 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show docs in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
@@ -122,6 +140,14 @@ function! ShowDocumentation()
     call feedkeys('K', 'in')
   endif
 endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+let g:cursor_hold_updatetime = 2000
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 
 """ Tab keybindings
