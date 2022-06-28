@@ -24,7 +24,8 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set autoindent
-set smartindent
+set nosmartindent
+set cindent
 set shiftwidth=2
 
 " ---------
@@ -71,8 +72,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " fugitive
 Plug 'tpope/vim-fugitive'
 
-" auto brackets/quotes
-Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -86,4 +85,20 @@ nnoremap <C-n> :Fern . -drawer
 
 " Set fern renderer to nerdfont
 let g:fern#renderer = "nerdfont"
+
+""" Coc
+" Install default extensions
+let g:coc_global_extensions = [
+  \'coc-css',
+  \'coc-html',
+  \'coc-json',
+  \'coc-pyright',
+  \'coc-rust-analyzer',
+  \'coc-pairs',
+  \'coc-tsserver'
+\]
+
+
+" Recognize <CR> in coc
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
