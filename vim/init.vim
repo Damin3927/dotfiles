@@ -48,6 +48,10 @@ nnoremap k gk
 " ---------
 set showmatch
 
+" ---------
+"  Leader
+" ---------
+let mapleader = "\<Space>"
 
 
 " load existing .vimrc
@@ -101,6 +105,23 @@ let g:coc_global_extensions = [
 
 " Recognize <CR> in coc
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show docs in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 
 """ Tab keybindings
