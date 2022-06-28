@@ -1,5 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
+set hidden
 
 " enable plugin/indent by file type
 filetype plugin indent on
@@ -120,6 +121,10 @@ let g:coc_global_extensions = [
 
 " Recognize <CR> in coc
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Set Background of floating windows
+" possible options can be found by `:h cterm-colors`
+highlight CocFloating ctermbg=DarkBlue
 
 " GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
