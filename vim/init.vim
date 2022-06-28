@@ -161,7 +161,7 @@ for n in range(1, 9)
   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
+map <silent> [Tag]t :tablast <bar> tabnew<CR>
 " tt open a new tab
 map <silent> [Tag]x :tabclose<CR>
 " tx close a tab
