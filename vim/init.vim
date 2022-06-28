@@ -1,3 +1,53 @@
+set encoding=utf-8
+scriptencoding utf-8
+
+" enable plugin/indent by file type
+filetype plugin indent on
+
+" ---------
+"  Letters
+" ---------
+set fileencoding=utf-8
+set fileformats=unix,dos,mac
+set ambiwidth=double
+
+" ---------
+"  Status line
+" ---------
+set showcmd
+set ruler
+
+" ---------
+"  Tab/Indent
+" ---------
+set expandtab
+set tabstop=2
+set softtabstop=2
+set autoindent
+set smartindent
+set shiftwidth=2
+
+" ---------
+"  Search
+" ---------
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+
+" ---------
+"  Cursor
+" ---------
+set number
+nnoremap j gj
+nnoremap k gk
+
+" ---------
+"  Parentheses
+" ---------
+set showmatch
+
+
 
 " load existing .vimrc
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
@@ -33,4 +83,5 @@ nnoremap <C-n> :Fern . -drawer
 
 " Set fern renderer to nerdfont
 let g:fern#renderer = "nerdfont"
+
 
