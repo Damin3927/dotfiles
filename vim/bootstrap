@@ -20,3 +20,8 @@ if [ ! -e $config_file_path ]; then
 	ln -s ${PWD}/init.vim ${config_file_path}
 fi
 
+coc_config_file_path=${config_path}/coc-settings.json
+if [ ! -e $coc_config_file_path ]; then
+  ln -s ${PWD}/coc-settings.json ${coc_config_file_path}
+fi
+
