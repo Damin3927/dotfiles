@@ -83,6 +83,9 @@ Plug 'tpope/vim-fugitive'
 " CursorHold event (cuz native CursorHold event doesn't work in NeoVim)
 Plug 'antoinemadec/FixCursorHold.nvim'
 
+" sandwich
+Plug 'machakann/vim-sandwich'
+
 
 call plug#end()
 
