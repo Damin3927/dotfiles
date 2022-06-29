@@ -271,14 +271,24 @@ let g:lightline = {
 """ fzf
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
-nnoremap <slient> <Leader>fh :<C-u>History<CR>
-nnoremap <slient> <Leader>fb :<C-u>Buffers<CR>
-nnoremap <slient> <Leader>ff :<C-u>Files<CR>
-nnoremap <slient> <Leader>fg :<C-u>GFiles<CR>
-nnoremap <slient> <Leader>fs :<C-u>GFiles?<CR>
-nnoremap <slient> <Leader>fc :<C-u>Commands<CR>
+nnoremap [fzf] <Nop>
+nmap <Leader>f [fzf]
+nnoremap <silent> [fzf]h :<C-u>History<CR>
+nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
+nnoremap <silent> [fzf]f :<C-u>Files<CR>
+nnoremap <silent> [fzf]g :<C-u>GFiles<CR>
+nnoremap <silent> [fzf]s :<C-u>GFiles?<CR>
+nnoremap <silent> [fzf]c :<C-u>Commands<CR>
 
 """ open-browser
 nnoremap <Leader>o <Plug>(openbrowser-smart-search)
 vnoremap <Leader>o <Plug>(openbrowser-smart-search)
+
+
+""" terminal
+nnoremap <silent> <Leader>d :<C-u>sp <CR> :wincmd j <CR> :term<CR>
+nnoremap <silent> <Leader>D :<C-u>vsp<CR> :wincmd l <CR> :term<CR>
+nnoremap <silent> <Leader>s :term<CR>
+tnoremap <C-[> <C-\><C-n>
+autocmd TermOpen * startinsert
 
