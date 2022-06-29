@@ -32,4 +32,5 @@ curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim 
 # Install fzf
 brew install fzf
 $(brew --prefix)/opt/fzf/install
+brew install bat
 

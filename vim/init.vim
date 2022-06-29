@@ -42,6 +42,8 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
+set ignorecase
+set smartcase
 
 " ---------
 "  Cursor
@@ -247,3 +249,14 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
+""" fzf
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+nnoremap <slient> <Leader>fh :<C-u>History<CR>
+nnoremap <slient> <Leader>fb :<C-u>Buffers<CR>
+nnoremap <slient> <Leader>ff :<C-u>Files<CR>
+nnoremap <slient> <Leader>fg :<C-u>GFilec<CR>
+nnoremap <slient> <Leader>fs :<C-u>GFiles?<CR>
+nnoremap <slient> <Leader>fc :<C-u>Commands<CR>
+
