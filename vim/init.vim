@@ -60,6 +60,11 @@ set showmatch
 " ---------
 let mapleader = "\<Space>"
 
+" ---------
+"  Yank
+" ---------
+set clipboard=unnamed
+
 
 " load existing .vimrc
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
