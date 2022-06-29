@@ -25,3 +25,7 @@ if [ ! -e $coc_config_file_path ]; then
   ln -s ${PWD}/coc-settings.json ${coc_config_file_path}
 fi
 
+# Install color scheme
+mkdir -p ~/.config/nvim/colors
+curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim
+

@@ -8,6 +8,9 @@ filetype plugin indent on
 " Auto reload of init.vim
 autocmd! bufwritepost $MYVIMRC source %
 
+" Color scheme
+colorscheme hybrid
+
 " ---------
 "  Letters
 " ---------
