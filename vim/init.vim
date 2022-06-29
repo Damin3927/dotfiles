@@ -94,6 +94,9 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 " sandwich
 Plug 'machakann/vim-sandwich'
 
+" airline
+Plug 'vim-airline/vim-airline'
+
 
 call plug#end()
 
