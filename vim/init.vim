@@ -106,6 +106,9 @@ Plug 'junegunn/fzf.vim'
 " tcomment
 Plug 'tomtom/tcomment_vim'
 
+" browser
+Plug 'tyru/open-browser.vim'
+
 
 call plug#end()
 
@@ -262,4 +265,8 @@ nnoremap <slient> <Leader>ff :<C-u>Files<CR>
 nnoremap <slient> <Leader>fg :<C-u>GFilec<CR>
 nnoremap <slient> <Leader>fs :<C-u>GFiles?<CR>
 nnoremap <slient> <Leader>fc :<C-u>Commands<CR>
+
+""" open-browser
+nnoremap <Leader>o <Plug>(openbrowser-smart-search)
+vnoremap <Leader>o <Plug>(openbrowser-smart-search)
 
