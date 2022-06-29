@@ -102,6 +102,7 @@ Plug 'itchyny/lightline.vim'
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 
 " tcomment
 Plug 'tomtom/tcomment_vim'
@@ -130,9 +131,10 @@ nnoremap <silent> [fugitive]s :G<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]c :G commit<CR>
 nnoremap <silent> [fugitive]d :Gdiff<CR>
-nnoremap <silent> [fugitive]b :Gblame<CR>
+nnoremap <silent> [fugitive]m :Gblame<CR>
 nnoremap <silent> [fugitive]p :G push<CR>
 nnoremap <silent> [fugitive]l :G pull<CR>
+nnoremap <silent> [fugitive]b :GBranches<CR>
 
 
 """ Coc
