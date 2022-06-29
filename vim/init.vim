@@ -274,7 +274,7 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap <slient> <Leader>fh :<C-u>History<CR>
 nnoremap <slient> <Leader>fb :<C-u>Buffers<CR>
 nnoremap <slient> <Leader>ff :<C-u>Files<CR>
-nnoremap <slient> <Leader>fg :<C-u>GFilec<CR>
+nnoremap <slient> <Leader>fg :<C-u>GFiles<CR>
 nnoremap <slient> <Leader>fs :<C-u>GFiles?<CR>
 nnoremap <slient> <Leader>fc :<C-u>Commands<CR>
 
