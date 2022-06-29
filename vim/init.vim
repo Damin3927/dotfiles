@@ -123,6 +123,18 @@ nnoremap <C-n> :Fern . -drawer<CR>
 " Set fern renderer to nerdfont
 let g:fern#renderer = "nerdfont"
 
+""" Fugitive
+nnoremap [fugitive] <Nop>
+nmap <Leader>i [fugitive]
+nnoremap <silent> [fugitive]s :G<CR><C-w>T
+nnoremap <silent> [fugitive]a :Gwrite<CR>
+nnoremap <silent> [fugitive]c :G commit<CR>
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]b :Gblame<CR>
+nnoremap <silent> [fugitive]p :G push<CR>
+nnoremap <silent> [fugitive]l :G pull<CR>
+
+
 """ Coc
 " Install default extensions
 let g:coc_global_extensions = [
