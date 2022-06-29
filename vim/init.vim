@@ -118,7 +118,7 @@ call plug#end()
 let g:fern#default_hidden=1
 
 " Show file true with <C-n>
-nnoremap <C-n> :Fern . -drawer
+nnoremap <C-n> :Fern . -drawer<CR>
 
 " Set fern renderer to nerdfont
 let g:fern#renderer = "nerdfont"
