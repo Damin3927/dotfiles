@@ -94,8 +94,12 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 " sandwich
 Plug 'machakann/vim-sandwich'
 
-" airline
-Plug 'vim-airline/vim-airline'
+" lightline
+Plug 'itchyny/lightline.vim'
+
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 
 call plug#end()
@@ -231,3 +235,15 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp jump to the previous tab
 
+
+""" lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
