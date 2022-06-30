@@ -2,16 +2,40 @@
 
 set -eu
 
+# brew install
+function bi() {
+  brew list $1 > /dev/null || brew install $1
+}
+
+# if the given program is installed into brew or not
+function is_installed_into_brew() {
+  result=0
+  brew list $1 > /dev/null || result=$?
+  return $result
+}
+
+# pip install
+function pi() {
+  pip show $1 > /dev/null || pip install $1
+}
+
+# if the given package is installed into pip or not
+function is_installed_into_pip() {
+  result=0
+  pip show $1 > /dev/null || result=$?
+  return $result
+}
+
 
 # install neovim and dependencies
-brew install neovim
+bi neovim
 brew tap homebrew/cask-fonts && brew install --cask font-ubuntu-mono-nerd-font
 
 
 # install https://github.com/junegunn/vim-plug
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null
 
 config_path=${HOME}/.config/nvim
 config_file_path=${config_path}/init.vim
@@ -27,9 +51,14 @@ fi
 
 # Install color scheme
 mkdir -p ~/.config/nvim/colors
-curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim
+curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim > /dev/null
 
 # Install fzf
-brew install fzf bat ripgrep
-yes | $(brew --prefix)/opt/fzf/install
+bi fzf
+bi bat
+bi ripgrep
+yes | $(brew --prefix)/opt/fzf/install > /dev/null
+
+# install pynvim into python
+pi pynvim
 
