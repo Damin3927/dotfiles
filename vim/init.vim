@@ -131,6 +131,7 @@ nnoremap <silent> [fugitive]s :G<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]c :G commit<CR>
 nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]h :G diff --cached<CR>
 nnoremap <silent> [fugitive]m :Gblame<CR>
 nnoremap <silent> [fugitive]p :G push<CR>
 nnoremap <silent> [fugitive]l :G pull<CR>
@@ -281,6 +282,8 @@ nnoremap <silent> [fzf]f :<C-u>Files<CR>
 nnoremap <silent> [fzf]g :<C-u>GFiles<CR>
 nnoremap <silent> [fzf]s :<C-u>GFiles?<CR>
 nnoremap <silent> [fzf]c :<C-u>Commands<CR>
+nnoremap <silent> [fzf]r :<C-u>Rg<CR>
+
 
 """ open-browser
 nnoremap <Leader>o <Plug>(openbrowser-smart-search)

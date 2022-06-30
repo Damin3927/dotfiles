@@ -30,7 +30,6 @@ mkdir -p ~/.config/nvim/colors
 curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim
 
 # Install fzf
-brew install fzf
+brew install fzf bat ripgrep
 yes | $(brew --prefix)/opt/fzf/install
-brew install bat
 

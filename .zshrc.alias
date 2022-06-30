@@ -26,5 +26,6 @@ alias rspec='bundle exec rspec'
 alias venv='source .venv/bin/activate'
 
 # NeoVim
+alias vi='nvim'
 alias vim='nvim'
 
