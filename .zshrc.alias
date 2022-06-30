@@ -24,6 +24,7 @@ alias rspec='bundle exec rspec'
 
 # python
 alias python='python3'
+alias pip='pip3'
 
 # venv
 alias venv='source .venv/bin/activate'
