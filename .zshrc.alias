@@ -22,6 +22,9 @@ alias relogin='exec $SHELL -l'
 alias rails='bundle exec rails'
 alias rspec='bundle exec rspec'
 
+# python
+alias python='python3'
+
 # venv
 alias venv='source .venv/bin/activate'
 
