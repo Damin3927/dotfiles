@@ -113,6 +113,10 @@ Plug 'tyru/open-browser.vim'
 " far.vim
 Plug 'brooth/far.vim'
 
+" markdown
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 
 call plug#end()
 
