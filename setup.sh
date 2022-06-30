@@ -1,5 +1,8 @@
 # !/bin/sh
 
+set -eu
+
+
 link_files=(".zshrc.template" ".zshrc.option" ".zshrc.alias")
 
 for link_file in ${link_files[@]}; do
@@ -13,3 +16,7 @@ source_template_str="[ -f ~/.zshrc.template ] && source ~/.zshrc.template"
 if ! grep -q "$source_template_str" ~/.zshrc; then
   echo "# zshrc template alias\n$source_template_str\n\n$(cat ~/.zshrc)" > ~/.zshrc
 fi
+
+# NeoVim setup
+bash $(pwd)/vim/bootstrap
+
