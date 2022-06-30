@@ -110,6 +110,9 @@ Plug 'tomtom/tcomment_vim'
 " browser
 Plug 'tyru/open-browser.vim'
 
+" far.vim
+Plug 'brooth/far.vim'
+
 
 call plug#end()
 
@@ -129,6 +132,7 @@ nnoremap [fugitive] <Nop>
 nmap <Leader>i [fugitive]
 nnoremap <silent> [fugitive]s :G<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
+nnoremap <silent> [fugitive]w :w<CR>
 nnoremap <silent> [fugitive]c :G commit<CR>
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]h :G diff --cached<CR>
@@ -296,4 +300,13 @@ nnoremap <silent> <Leader>D :<C-u>vsp<CR> :wincmd l <CR> :term<CR>
 nnoremap <silent> <Leader>s :term<CR>
 tnoremap <C-[> <C-\><C-n>
 autocmd TermOpen * startinsert
+
+
+""" far.vim
+let g:far#source = "rgnvim"
+let g:far#enable_undo = 1
+nnoremap [far-replace] <Nop>
+nmap <Leader>r [far-replace]
+nnoremap <silent> [far-replace]  :Farr<cr>
+vnoremap <silent> [far-replace]  :Farr<cr>
 
