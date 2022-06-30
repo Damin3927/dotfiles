@@ -1,6 +1,6 @@
 # NeoVim key bindings
 
-| Plugin       | Key binding | action                           a                                         | remark                 |
+| Plugin       | Key binding | action                                                                    | remark                 |
 |--------------|-------------|---------------------------------------------------------------------------|------------------------|
 | Fern         | \<C-n>      | Open a file drawer                                                        |                        |
 | Fugitive     | \<Leader>is | git status                                                                |                        |
