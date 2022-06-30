@@ -160,7 +160,8 @@ let g:coc_global_extensions = [
   \'coc-solargraph',
   \'coc-solidity',
   \'coc-vetur',
-  \'coc-tsserver'
+  \'coc-tsserver',
+  \'coc-prettier' 
 \]
 
 
@@ -199,11 +200,11 @@ let g:cursor_hold_updatetime = 2000
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+vnoremap <Leader>m <Plug>(coc-format-selected)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
+nnoremap <Leader>m :Format<CR>
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
