@@ -117,6 +117,9 @@ Plug 'brooth/far.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+" buffergator
+Plug 'jeetsukumaran/vim-buffergator'
+
 
 call plug#end()
 
