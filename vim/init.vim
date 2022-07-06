@@ -120,6 +120,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " buffergator
 Plug 'jeetsukumaran/vim-buffergator'
 
+" endwise
+Plug 'tpope/vim-endwise'
+
 
 call plug#end()
 
