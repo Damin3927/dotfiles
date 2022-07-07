@@ -155,6 +155,7 @@ nnoremap <silent> [fugitive]b :GBranches<CR>
 """ Coc
 " Install default extensions
 let g:coc_global_extensions = [
+  \'coc-diagnostic',
   \'coc-css',
   \'coc-html',
   \'coc-json',
@@ -225,6 +226,9 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" coc-diagnostic
+nnoremap <silent> cd :CocDiagnostic<CR>
 
 
 """ Tab keybindings
