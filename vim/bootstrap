@@ -16,13 +16,13 @@ function is_installed_into_brew() {
 
 # pip install
 function pi() {
-  pip show $1 > /dev/null || pip install $1
+  pip3 show $1 > /dev/null || pip3 install $1
 }
 
 # if the given package is installed into pip or not
 function is_installed_into_pip() {
   result=0
-  pip show $1 > /dev/null || result=$?
+  pip3 show $1 > /dev/null || result=$?
   return $result
 }
 
