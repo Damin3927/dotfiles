@@ -1,7 +1,7 @@
-# zshrc
+# dotfiles
 
-Run the command below:
+To install all dotfiles, run the command below:
 
-```sh
-$ sh setup.sh
+```bash
+$ bash setup.sh
 ```
