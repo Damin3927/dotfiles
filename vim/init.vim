@@ -123,6 +123,9 @@ Plug 'jeetsukumaran/vim-buffergator'
 " endwise
 Plug 'tpope/vim-endwise'
 
+" current_word
+Plug 'dominikduda/vim_current_word'
+
 
 call plug#end()
 
@@ -325,3 +328,8 @@ nmap <Leader>r [far-replace]
 nnoremap <silent> [far-replace]  :Farr<cr>
 vnoremap <silent> [far-replace]  :Farr<cr>
 
+
+""" current_word
+let g:vim_current_word#highlight_only_in_focusted_window = 1
+hi CurrentWord ctermbg=53
+hi CurrentWordTwins ctermbg=237
