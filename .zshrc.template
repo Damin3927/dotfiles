@@ -3,13 +3,5 @@ autoload -Uz compinit && compinit
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-
-# aliases
-if [ -f ~/.zshrc.alias ]; then
-  source ~/.zshrc.alias
-fi
-
-# options
-if [ -f ~/.zshrc.option ]; then
-  source ~/.zshrc.option
-fi
+dir_path=$(dirname $(readlink -f .zshrc.template))
+source "${dir_path}/.zshrc.alias" "${dir_path}/.zshrc.option"

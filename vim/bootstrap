@@ -4,25 +4,25 @@ set -eu
 
 # brew install
 function bi() {
-  brew list $1 > /dev/null || brew install $1
+  brew list "$1" > /dev/null || brew install "$1"
 }
 
 # if the given program is installed into brew or not
 function is_installed_into_brew() {
   result=0
-  brew list $1 > /dev/null || result=$?
+  brew list "$1" > /dev/null || result=$?
   return $result
 }
 
 # pip install
 function pi() {
-  pip3 show $1 > /dev/null || pip3 install $1
+  pip3 show "$1" > /dev/null || pip3 install "$1"
 }
 
 # if the given package is installed into pip or not
 function is_installed_into_pip() {
   result=0
-  pip3 show $1 > /dev/null || result=$?
+  pip3 show "$1" > /dev/null || result=$?
   return $result
 }
 
@@ -39,14 +39,14 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 config_path=${HOME}/.config/nvim
 config_file_path=${config_path}/init.vim
-if [ ! -e $config_file_path ]; then
-	mkdir -p ${config_path}
-	ln -s ${PWD}/init.vim ${config_file_path}
+if [ ! -e "$config_file_path" ]; then
+	mkdir -p "${config_path}"
+	ln -s "${PWD}/init.vim" "${config_file_path}"
 fi
 
 coc_config_file_path=${config_path}/coc-settings.json
-if [ ! -e $coc_config_file_path ]; then
-  ln -s ${PWD}/coc-settings.json ${coc_config_file_path}
+if [ ! -e "$coc_config_file_path" ]; then
+  ln -s "${PWD}/coc-settings.json" "${coc_config_file_path}"
 fi
 
 # Install color scheme
@@ -57,7 +57,7 @@ curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim 
 bi fzf
 bi bat
 bi ripgrep
-yes | $(brew --prefix)/opt/fzf/install > /dev/null
+yes | "$(brew --prefix)/opt/fzf/install" > /dev/null
 
 # install pynvim into python
 pi pynvim
