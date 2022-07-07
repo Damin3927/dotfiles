@@ -126,6 +126,9 @@ Plug 'tpope/vim-endwise'
 " current_word
 Plug 'dominikduda/vim_current_word'
 
+" enable :GBrowse
+Plug 'tpope/vim-rhubarb'
+
 
 call plug#end()
 
@@ -153,6 +156,7 @@ nnoremap <silent> [fugitive]m :Gblame<CR>
 nnoremap <silent> [fugitive]p :G push<CR>
 nnoremap <silent> [fugitive]l :G pull<CR>
 nnoremap <silent> [fugitive]b :GBranches<CR>
+nnoremap <silent> [fugitive]g V:GBrowse<CR>
 
 
 """ Coc
