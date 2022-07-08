@@ -1,7 +1,11 @@
+function get_abs_path() {
+  dir_name=$(cd "$(dirname "$(dirname "$1")/$2")" && pwd)
+  echo "${dir_name}/$(basename "$2")" 
+}
+
 autoload -Uz compinit && compinit
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-dir_path=$(dirname $(readlink -f "$0"))
-source "${dir_path}/.zshrc.alias" "${dir_path}/.zshrc.option"
+source "$(get_abs_path $0 .zshrc.alias)" "$(get_abs_path $0 .zshrc.option)"
