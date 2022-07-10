@@ -179,7 +179,8 @@ let g:coc_global_extensions = [
   \'coc-solidity',
   \'coc-vetur',
   \'coc-tsserver',
-  \'coc-prettier' 
+  \'coc-prettier' ,
+  \'coc-docker'
 \]
 
 
