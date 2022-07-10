@@ -2,6 +2,11 @@
 
 set -eu
 
+function get_abs_path() {
+  dir_name=$(cd "$(dirname "$(dirname "$0")/$1")" && pwd)
+  echo "${dir_name}/$(basename "$1")"
+}
+
 # brew install
 function bi() {
   brew list "$1" > /dev/null || brew install "$1"
@@ -41,12 +46,12 @@ config_path=${HOME}/.config/nvim
 config_file_path=${config_path}/init.vim
 if [ ! -e "$config_file_path" ]; then
 	mkdir -p "${config_path}"
-	ln -s "${PWD}/init.vim" "${config_file_path}"
+	ln -s "$(get_abs_path "init.vim")" "${config_file_path}"
 fi
 
 coc_config_file_path=${config_path}/coc-settings.json
 if [ ! -e "$coc_config_file_path" ]; then
-  ln -s "${PWD}/coc-settings.json" "${coc_config_file_path}"
+  ln -s "$(get_abs_path "coc-settings.json")" "${coc_config_file_path}"
 fi
 
 # Install color scheme
