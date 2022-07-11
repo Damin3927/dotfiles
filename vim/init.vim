@@ -129,6 +129,9 @@ Plug 'dominikduda/vim_current_word'
 " enable :GBrowse
 Plug 'tpope/vim-rhubarb'
 
+" trailing-whitespace
+Plug 'bronson/vim-trailing-whitespace'
+
 
 call plug#end()
 
