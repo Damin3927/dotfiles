@@ -155,7 +155,7 @@ nnoremap <silent> [fugitive]w :w<CR>
 nnoremap <silent> [fugitive]c :G commit<CR>
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]h :G diff --cached<CR>
-nnoremap <silent> [fugitive]m :Gblame<CR>
+nnoremap <silent> [fugitive]m :G blame<CR>
 nnoremap <silent> [fugitive]p :G push<CR>
 nnoremap <silent> [fugitive]l :G pull<CR>
 nnoremap <silent> [fugitive]b :GBranches<CR>
