@@ -16,4 +16,4 @@ if ! grep -q "$source_template_str" "${HOME}/.zshrc"; then
 fi
 
 # NeoVim setup
-bash "$(get_abs_path "vim/bootstrap")"
+bash "$(get_abs_path "vim/bootstrap.sh")"
