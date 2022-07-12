@@ -69,3 +69,12 @@ pi pynvim
 
 # Install shellcheck
 bi shellcheck
+
+# Install rust-analyzer
+if ! command -v rust-analyzer &> /dev/null; then
+  git clone https://github.com/rust-lang/rust-analyzer.git
+  cd rust-analyzer
+  cargo xtask install --server
+  cd ..
+  rm -rf rust-analyzer
+fi
