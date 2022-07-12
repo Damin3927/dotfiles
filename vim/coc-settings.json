@@ -1,12 +1,5 @@
 {
   "coc.preferences.formatOnType": true,
-  "languageserver": {
-    "rust": {
-      "command": "~/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer",
-      "filetypes": ["rust"],
-      "rootPatterns": ["Cargo.toml"]
-    }
-  },
   "diagnostic-languageserver.filetypes": {
     "ruby": "rubocop",
     "sh": "shellcheck"
