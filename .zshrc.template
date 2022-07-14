@@ -8,4 +8,7 @@ autoload -Uz compinit && compinit
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# PATH
+export PATH="${PATH}:${HOME}/.zls"
+
 source "$(get_abs_path $0 .zshrc.alias)" "$(get_abs_path $0 .zshrc.option)"

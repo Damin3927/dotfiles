@@ -132,6 +132,9 @@ Plug 'tpope/vim-rhubarb'
 " trailing-whitespace
 Plug 'bronson/vim-trailing-whitespace'
 
+" zig
+Plug 'ziglang/zig.vim'
+
 
 call plug#end()
 

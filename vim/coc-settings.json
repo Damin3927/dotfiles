@@ -43,5 +43,6 @@
         "info": "info"
       }
     }
-  }
+  },
+  "zig.path": "zls"
 }
