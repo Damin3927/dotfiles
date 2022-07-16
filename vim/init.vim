@@ -191,6 +191,7 @@ let g:coc_global_extensions = [
   \'coc-solargraph',
   \'coc-solidity',
   \'coc-vetur',
+  \'coc-svelte',
   \'coc-tsserver',
   \'coc-prettier' ,
   \'coc-docker',
