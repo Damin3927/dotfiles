@@ -44,5 +44,6 @@
       }
     }
   },
+  "python.formatting.provider": "black",
   "zig.path": "zls"
 }
