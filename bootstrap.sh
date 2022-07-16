@@ -5,10 +5,10 @@ set -eu
 
 function get_abs_path() {
   dir_name=$(cd "$(dirname "$(dirname "$0")/$1")" && pwd)
-  echo "${dir_name}/$(basename "$1")" 
+  echo "${dir_name}/$(basename "$1")"
 }
 
-abs_path=$(get_abs_path ".zshrc.template")
+abs_path=$(get_abs_path "template.zsh")
 source_template_str="source ${abs_path}"
 
 if ! grep -q "$source_template_str" "${HOME}/.zshrc"; then
