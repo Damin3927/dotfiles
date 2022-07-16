@@ -11,6 +11,9 @@ autocmd! bufwritepost $MYVIMRC source %
 " Color scheme
 colorscheme hybrid
 
+" Syntax
+syntax enable
+
 " ---------
 "  Letters
 " ---------
@@ -132,6 +135,9 @@ Plug 'tpope/vim-rhubarb'
 " trailing-whitespace
 Plug 'bronson/vim-trailing-whitespace'
 
+" Rust
+Plug 'rust-lang/rust.vim'
+
 " zig
 Plug 'ziglang/zig.vim'
 
@@ -174,6 +180,7 @@ let g:coc_global_extensions = [
   \'coc-json',
   \'coc-pyright',
   \'coc-rust-analyzer',
+  \'coc-rls',
   \'coc-pairs',
   \'coc-sh',
   \'coc-css',

@@ -85,3 +85,6 @@ if ! command -v zls &> /dev/null; then
   zls_version=0.9.0
   mkdir "${HOME}/.zls" && cd "${HOME}/.zls" && curl -L "https://github.com/zigtools/zls/releases/download/${zls_version}/x86_64-macos.tar.xz" | tar -xJ --strip-components=1 -C . && chmod +x zls
 fi
+
+# Configure rustup
+rustup component add rls rust-analysis rust-src
