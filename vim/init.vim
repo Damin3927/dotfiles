@@ -141,6 +141,11 @@ Plug 'rust-lang/rust.vim'
 " zig
 Plug 'ziglang/zig.vim'
 
+" Svelte
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
 
 call plug#end()
 
