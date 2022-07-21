@@ -88,3 +88,6 @@ fi
 
 # Configure rustup
 rustup component add rls rust-analysis rust-src
+
+# Install clangd along with LLVM
+bi llvm
