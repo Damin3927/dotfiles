@@ -182,6 +182,7 @@ let g:coc_global_extensions = [
   \'coc-diagnostic',
   \'coc-css',
   \'coc-html',
+  \'coc-clangd',
   \'coc-json',
   \'coc-pyright',
   \'coc-rust-analyzer',
