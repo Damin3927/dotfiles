@@ -18,6 +18,17 @@ alias zshrc='vim ~/.zshrc'
 # re-login
 alias relogin='exec $SHELL -l'
 
+# lazy loading of rbenv
+if [ -e "${HOME}/.rbenv" ];then
+  alias ruby='unalias ruby bundle gem irb && eval "$(rbenv init -)" && ruby'
+  alias bundle='unalias ruby bundle gem irb && eval "$(rbenv init -)" && bundle'
+  alias gem='unalias ruby bundle gem irb && eval "$(rbenv init -)" && gem'
+  alias irb='unalias ruby bundle gem irb && eval "$(rbenv init -)" && irb'
+fi
+
+# lazy loading of nvm
+
+
 # Ruby on Rails
 alias rails='bundle exec rails'
 alias rspec='bundle exec rspec'
