@@ -27,7 +27,14 @@ if [ -e "${HOME}/.rbenv" ];then
 fi
 
 # lazy loading of nvm
-
+export NVM_DIR="$HOME/.nvm"
+if [ -s "${NVM_DIR}/nvm.sh" ]; then
+  alias nvm='unalias nvm node npm yarn && . "$NVM_DIR"/nvm.sh && nvm'
+  alias node='unalias nvm node npm yarn && . "$NVM_DIR"/nvm.sh && node'
+  alias npm='unalias nvm node npm yarn && . "$NVM_DIR"/nvm.sh && npm'
+  alias yarn='unalias nvm node npm yarn && . "$NVM_DIR"/nvm.sh && yarn'
+fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Ruby on Rails
 alias rails='bundle exec rails'
