@@ -1,6 +1,11 @@
 set encoding=utf-8
 scriptencoding utf-8
 set hidden
+set nobackup
+set nowritebackup
+
+set shortmess+=c
+set signcolumn=number
 
 " enable plugin/indent by file type
 filetype plugin indent on
@@ -79,6 +84,8 @@ source ~/.vimrc
 " vim-plug
 call plug#begin()
 
+Plug 'antoinemadec/FixCursorHold.nvim'
+
 Plug 'tomasr/molokai'
 
 " fern
@@ -86,6 +93,8 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern-hijack.vim'
+Plug 'yuki-yano/fern-preview.vim'
 
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -155,10 +164,23 @@ call plug#end()
 let g:fern#default_hidden=1
 
 " Show file true with <C-n>
-nnoremap <C-n> :Fern . -drawer<CR>
+nnoremap <C-n> :Fern . -drawer -reveal=%<CR>
 
 " Set fern renderer to nerdfont
 let g:fern#renderer = "nerdfont"
+
+" See a file preview with p
+function! s:fern_settings() abort
+  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+  nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+  nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+endfunction
+
+augroup fern-settings
+  autocmd!
+  autocmd FileType fern call s:fern_settings()
+augroup END
 
 """ Fugitive
 nnoremap [fugitive] <Nop>
