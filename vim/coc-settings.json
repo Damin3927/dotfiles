@@ -9,7 +9,7 @@
   },
   "diagnostic-languageserver.filetypes": {
     "ruby": "rubocop",
-    "sh": "shellcheck"
+    "sh": "shellcheck -x"
   },
   "diagnostic-languageserver.linters": {
     "rubocop": {

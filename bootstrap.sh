@@ -20,3 +20,6 @@ while read -r; do brew list "${REPLY}" &> /dev/null || brew install "${REPLY}"; 
 
 # NeoVim setup
 bash "$(get_abs_path "vim/bootstrap.sh")"
+
+# Exec installer
+. init/installer.sh
