@@ -99,6 +99,9 @@ Plug 'yuki-yano/fern-preview.vim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" nvim-dap
+Plug 'mfussenegger/nvim-dap'
+
 " fugitive
 Plug 'tpope/vim-fugitive'
 
