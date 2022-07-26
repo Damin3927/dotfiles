@@ -99,8 +99,8 @@ Plug 'yuki-yano/fern-preview.vim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" nvim-dap
-Plug 'mfussenegger/nvim-dap'
+" vimspector
+Plug 'puremourning/vimspector'
 
 " fugitive
 Plug 'tpope/vim-fugitive'
@@ -283,6 +283,13 @@ endif
 
 " coc-diagnostic
 nnoremap <silent> cd :CocDiagnostic<CR>
+
+
+""" vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [
+  \'debugpy',
+\]
 
 
 """ Tab keybindings
