@@ -269,7 +269,11 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 vnoremap <Leader>m <Plug>(coc-format-selected)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocActionAsync('format')
+function! FormatBuffer()
+  execute CocActionAsync('format')
+  execute "CocCommand eslint.executeAutofix"
+endfunction
+command! -nargs=0 Format :call FormatBuffer()
 nnoremap <Leader>m :Format<CR>
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
