@@ -114,6 +114,9 @@ Plug 'machakann/vim-sandwich'
 " lightline
 Plug 'itchyny/lightline.vim'
 
+" emmet
+Plug 'mattn/emmet-vim'
+
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
