@@ -20,7 +20,7 @@ for target in "$(dirname "$0")"/*; do
     continue
   fi
 
-  if [ -d "${target}" ]; then
+  if [ -d "${target}" ] && [ -f "${target}/init.sh" ]; then
     # shellcheck disable=SC1091
     . "${target}/init.sh"
   elif [ -f "${target}" ]; then

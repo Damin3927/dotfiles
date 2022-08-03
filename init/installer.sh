@@ -29,21 +29,17 @@ for target in "${SCRIPT_DIR}"/*; do
     continue
   fi
 
-  if [ -d "${target}" ]; then
-    if is_not_installed "${target}"; then
-      echo "Installing ${target} ..."
-      # shellcheck disable=SC1091
-      . "${target}/install.sh"
-      echo "Successfully installed ${target}!"
-      continue
-    fi
-  elif [ -f "${target}" ]; then
-    if is_not_installed "${target}"; then
-      echo "Installing ${target} ..."
-      brew install "${target}"
-      echo "Successfully installed ${target}!"
-      continue
-    fi
+  if [ -d "${target}" ] && is_not_installed "${target}" && [ -f "${target}/install.sh" ]; then
+    echo "Installing ${target} ..."
+    # shellcheck disable=SC1091
+    . "${target}/install.sh"
+    echo "Successfully installed ${target}!"
+    continue
+  elif [ -f "${target}" ] && is_not_installed "${target}"; then
+    echo "Installing ${target} ..."
+    brew install "${target}"
+    echo "Successfully installed ${target}!"
+    continue
   fi
 
   echo "${target} is already installed. Skipped."
