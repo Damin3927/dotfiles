@@ -11,6 +11,7 @@ is_not_installed() {
 
 # Install brew formulae
 while read -r; do
+  continue
   if brew list "${REPLY}" &>/dev/null ;then
     echo "${REPLY} is already installed. Skipped."
   else
@@ -29,13 +30,13 @@ for target in "${SCRIPT_DIR}"/*; do
     continue
   fi
 
-  if [ -d "${target}" ] && is_not_installed "${target}" && [ -f "${target}/install.sh" ]; then
+  if [ -d "${SCRIPT_DIR}/${target}" ] && is_not_installed "${target}" && [ -f "${SCRIPT_DIR}/${target}/install.sh" ]; then
     echo "Installing ${target} ..."
-    # shellcheck disable=SC1091
-    . "${target}/install.sh"
+    # shellcheck disable=SC1090
+    . "${SCRIPT_DIR}/${target}/install.sh"
     echo "Successfully installed ${target}!"
     continue
-  elif [ -f "${target}" ] && is_not_installed "${target}"; then
+  elif [ -f "${SCRIPT_DIR}/${target}" ] && is_not_installed "${target}"; then
     echo "Installing ${target} ..."
     brew install "${target}"
     echo "Successfully installed ${target}!"
