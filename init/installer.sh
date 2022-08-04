@@ -11,7 +11,6 @@ is_not_installed() {
 
 # Install brew formulae
 while read -r; do
-  continue
   if brew list "${REPLY}" &>/dev/null ;then
     echo "${REPLY} is already installed. Skipped."
   else
