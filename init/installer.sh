@@ -21,7 +21,7 @@ while read -r; do
 done < "${SCRIPT_DIR}/brew_formulae"
 
 
-exlcuded_files="exec_init.sh installer.sh brew_formulae README.md"
+exlcuded_files="exec_init.sh installer.sh brew_formulae README.md scaffold_tool_script.sh"
 for target in "${SCRIPT_DIR}"/*; do
   target="$(basename "$target")"
 

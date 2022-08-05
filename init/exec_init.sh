@@ -14,6 +14,7 @@ excluded_files=(
   "installer.sh"
   "brew_formulae"
   "README.md"
+  "scaffold_tool_script.sh"
 )
 for target in "$(dirname "$0")"/*; do
   if contains "$(basename "$target")" "${excluded_files[@]}"; then
