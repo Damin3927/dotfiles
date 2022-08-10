@@ -164,6 +164,9 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Protobuf
+Plug 'uarun/vim-protobuf'
+
 
 call plug#end()
 
@@ -233,7 +236,8 @@ let g:coc_global_extensions = [
   \'coc-prettier' ,
   \'coc-eslint',
   \'coc-docker',
-  \'coc-zig'
+  \'coc-zig',
+  \'coc-protobuf'
 \]
 
 
