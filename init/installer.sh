@@ -10,13 +10,13 @@ is_not_installed() {
 }
 
 # Install brew formulae
-while read -r; do
-  if brew list "${REPLY}" &>/dev/null ;then
-    echo "${REPLY} is already installed. Skipped."
+while read -r formula; do
+  if brew list "${formula}" &>/dev/null ;then
+    echo "${formula} is already installed. Skipped."
   else
-    echo "Installing ${REPLY} ..."
-    brew install "${REPLY}"
-    echo "Successfully installed ${REPLY}!"
+    echo "Installing ${formula} ..."
+    echo brew install "${formula}" | bash
+    echo "Successfully installed ${formula}!"
   fi
 done < "${SCRIPT_DIR}/brew_formulae"
 
