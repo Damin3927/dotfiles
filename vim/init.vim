@@ -167,6 +167,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Protobuf
 Plug 'uarun/vim-protobuf'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 call plug#end()
 
@@ -214,6 +218,7 @@ nnoremap <silent> [fugitive]g V:GBrowse<CR>
 " Install default extensions
 let g:coc_global_extensions = [
   \'coc-diagnostic',
+  \'coc-snippets',
   \'coc-css',
   \'coc-html',
   \'coc-clangd',
