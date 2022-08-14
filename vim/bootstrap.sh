@@ -1,7 +1,5 @@
 #! /bin/bash
 
-set -eu
-
 function get_abs_path() {
   dir_name=$(cd "$(dirname "$(dirname "$0")/$1")" && pwd)
   echo "${dir_name}/$(basename "$1")"
@@ -53,7 +51,7 @@ pi pynvim
 # Install rust-analyzer
 if ! command -v rust-analyzer &> /dev/null; then
   git clone https://github.com/rust-lang/rust-analyzer.git
-  cd rust-analyzer
+  cd rust-analyzer || exit
   cargo xtask install --server
   cd ..
   rm -rf rust-analyzer
