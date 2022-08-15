@@ -15,6 +15,9 @@ excluded_files=(
   "brew_formulae"
   "README.md"
   "scaffold_tool_script.sh"
+  ".gitignore"
+  ".installignore"
+  ".installignore.example"
 )
 for target in "$(dirname "$0")"/*; do
   if contains "$(basename "$target")" "${excluded_files[@]}"; then

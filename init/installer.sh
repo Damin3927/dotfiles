@@ -11,17 +11,23 @@ is_not_installed() {
 
 # Install brew formulae
 while read -r formula; do
+  if grep -q "${formula}" "${SCRIPT_DIR}/.installignore"; then
+    echo "${formula} is marked to be skipped."
+    continue
+  fi
+
   if brew list "${formula}" &>/dev/null ;then
     echo "${formula} is already installed. Skipped."
-  else
-    echo "Installing ${formula} ..."
-    echo brew install "${formula}" | bash
-    echo "Successfully installed ${formula}!"
+    continue
   fi
+
+  echo "Installing ${formula} ..."
+  echo brew install "${formula}" | bash
+  echo "Successfully installed ${formula}!"
 done < "${SCRIPT_DIR}/brew_formulae"
 
 
-exlcuded_files="exec_init.sh installer.sh brew_formulae README.md scaffold_tool_script.sh"
+exlcuded_files="exec_init.sh installer.sh brew_formulae README.md scaffold_tool_script.sh .gitignore .installignore .installignore.example"
 for target in "${SCRIPT_DIR}"/*; do
   target="$(basename "$target")"
 
