@@ -232,6 +232,7 @@ let g:coc_global_extensions = [
   \'coc-go',
   \'coc-html',
   \'coc-java',
+  \'coc-kotlin',
   \'coc-groovy',
   \'coc-markdownlint',
   \'coc-solargraph',
