@@ -167,6 +167,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Protobuf
 Plug 'uarun/vim-protobuf'
 
+" Kotlin
+Plug 'udalov/kotlin-vim'
+
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
