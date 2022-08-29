@@ -1,6 +1,6 @@
 get_abs_path () {
   dir_name=$(cd "$(dirname "$(dirname "$1")/$2")" && pwd)
-  echo "${dir_name}/$(basename "$2")"
+  echo "${dir_name}"
 }
 
 resolve_relative_path () (
@@ -35,5 +35,5 @@ export PATH="${PATH}:${HOME}/.zls"
 # llvm
 export PATH="${PATH}:$(brew --prefix llvm)/bin"
 
-source "$(get_abs_path $0 alias.zsh)" "$(get_abs_path $0 option.zsh)"
-source $(resolve_relative_path $(dirname "$0")/../init/exec_init.sh)
+abs_path="$(get_abs_path $0)"
+source "${abs_path}/zsh/alias.zsh" "${abs_path}/zsh/option.zsh" "${abs_path}/zsh/generated_init.zsh"
