@@ -1,9 +1,9 @@
-function get_abs_path() {
+get_abs_path () {
   dir_name=$(cd "$(dirname "$(dirname "$1")/$2")" && pwd)
   echo "${dir_name}/$(basename "$2")"
 }
 
-resolve_relative_path() (
+resolve_relative_path () (
     # If the path is a directory, we just need to 'cd' into it and print the new path.
     if [ -d "$1" ]; then
         cd "$1" || return 1
@@ -37,4 +37,3 @@ export PATH="${PATH}:$(brew --prefix llvm)/bin"
 
 source "$(get_abs_path $0 alias.zsh)" "$(get_abs_path $0 option.zsh)"
 source $(resolve_relative_path $(dirname "$0")/../init/exec_init.sh)
-
