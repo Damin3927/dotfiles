@@ -14,7 +14,6 @@ const initDir = "./init"
 
 var ignoreFiles = []string{
 	".DS_Store",
-	"exec_init.sh",
 	"installer.sh",
 	"brew_formulae",
 	"README.md",

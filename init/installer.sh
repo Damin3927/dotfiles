@@ -27,7 +27,7 @@ while read -r formula; do
 done < "${SCRIPT_DIR}/brew_formulae"
 
 
-exlcuded_files="exec_init.sh installer.sh brew_formulae README.md scaffold_tool_script.sh .gitignore .installignore .installignore.example"
+exlcuded_files="installer.sh brew_formulae README.md scaffold_tool_script.sh .gitignore .installignore .installignore.example"
 for target in "${SCRIPT_DIR}"/*; do
   target="$(basename "$target")"
 
