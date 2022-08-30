@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"bufio"
@@ -8,6 +8,8 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
+
+	"github.com/spf13/cobra"
 )
 
 const initDir = "./init"
@@ -77,7 +79,7 @@ func writeToFile(f io.Writer, lines []string) error {
 	return err
 }
 
-func run() error {
+func buildInit() error {
 	files, err := listFiles(initDir)
 	if err != nil {
 		return fmt.Errorf("Failed to list files: %v", err)
@@ -121,13 +123,21 @@ func run() error {
 	return nil
 }
 
-func main() {
-	fmt.Println("Start building...")
+var buildInitCmd = &cobra.Command{
+	Use:   "build-init",
+	Short: "Init script builder",
+	Long:  `Init script builder`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		fmt.Println("Building init files...")
+		err := buildInit()
+		if err != nil {
+			return fmt.Errorf("Failed to build init files: %v", err)
+		}
+		fmt.Println("Finished building init files.")
+		return nil
+	},
+}
 
-	if err := run(); err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to build init files: %v", err)
-		os.Exit(1)
-	}
-
-	fmt.Println("Finished building init files.")
+func init() {
+	rootCmd.AddCommand(buildInitCmd)
 }

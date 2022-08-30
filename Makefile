@@ -1,17 +1,21 @@
-.DEFAULT_GOAL: init
+.DEFAULT_GOAL := init
 
+.PNONY: build_cli
+build_cli:
+	go build -o bin/dotfiles .
 
 .PNOHY: build_init
-build_init: ## Build initialization files
-	go run ./cmd/build_init.go
+build_init: build_cli ## Build initialization files
+	./bin/dotfiles build-init
 
 .PNOHY: bootstrap
-bootstrap: ## Bootstrap shell enviroments
-	./bootstrap.sh
+bootstrap: build_cli ## Bootstrap shell enviroments
+	./bin/dotfiles install-pkgs
 
 .PNOHY: init
 init: build_init bootstrap ## Initialize environments
 
 
+.PNOHY: help
 help: ## Prints help for targets with comments
 	@cat $(MAKEFILE_LIST) | grep -E '^[a-zA-Z_-]+:.*?## .*$$' | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
