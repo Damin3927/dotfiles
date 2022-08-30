@@ -1,54 +1,12 @@
 package cmd
 
 import (
-	"bufio"
 	"fmt"
-	"io"
-	"io/fs"
-	"io/ioutil"
 	"os"
 	"strings"
 
 	"github.com/spf13/cobra"
 )
-
-const initDir = "./init"
-
-var ignoreFiles = []string{
-	".DS_Store",
-	"installer.sh",
-	"brew_formulae",
-	"README.md",
-	"scaffold_tool_script.sh",
-	".gitignore",
-	".installignore",
-	".installignore.example",
-}
-
-func Contains[K comparable](array []K, el K) bool {
-	for _, candidate := range array {
-		if candidate == el {
-			return true
-		}
-	}
-
-	return false
-}
-
-func listFiles(dir string) ([]fs.FileInfo, error) {
-	return ioutil.ReadDir(dir)
-}
-
-func readLines(f io.Reader) []string {
-	sc := bufio.NewScanner(f)
-	sc.Split(bufio.ScanLines)
-
-	result := []string{}
-	for sc.Scan() {
-		result = append(result, sc.Text())
-	}
-	return result
-}
 
 func appendScript(name string, original, appendee []string) []string {
 	hasShebang := false
@@ -73,14 +31,8 @@ func appendScript(name string, original, appendee []string) []string {
 	return result
 }
 
-func writeToFile(f io.Writer, lines []string) error {
-	data := []byte(strings.Join(lines, "\n"))
-	_, err := f.Write(data)
-	return err
-}
-
 func buildInit() error {
-	files, err := listFiles(initDir)
+	files, err := ListFiles(initDir)
 	if err != nil {
 		return fmt.Errorf("Failed to list files: %v", err)
 	}
@@ -94,29 +46,24 @@ func buildInit() error {
 			continue
 		}
 
-		var filename string
-		if fileInfo.IsDir() {
-			filename = fmt.Sprintf("%s/%s/init.sh", initDir, fileInfo.Name())
-		} else {
-			filename = fmt.Sprintf("%s/%s", initDir, fileInfo.Name())
+		if !fileInfo.IsDir() {
+			continue
 		}
 
-		file, err := os.Open(filename)
-		defer file.Close()
+		filename := fmt.Sprintf("%s/%s/init.sh", initDir, fileInfo.Name())
+		lines, err := GetLinesOfFile(filename)
 		if err != nil {
-			return fmt.Errorf("failed to load: %s", file.Name())
+			return fmt.Errorf("Failed to load: %s", err)
 		}
 
-		lines := readLines(file)
 		resultScript = appendScript(fileInfo.Name(), resultScript, lines)
-
 	}
 
 	file, err := os.Create("zsh/generated_init.zsh")
 	if err != nil {
 		return fmt.Errorf("Failed to create file zsh/generated_init.zsh: %v", err)
 	}
-	if err := writeToFile(file, resultScript); err != nil {
+	if err := WriteToFile(file, resultScript); err != nil {
 		return fmt.Errorf("failed to write data to script: %v", err)
 	}
 

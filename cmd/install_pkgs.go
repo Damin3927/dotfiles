@@ -2,35 +2,101 @@ package cmd
 
 import (
 	"fmt"
-	"os/exec"
 	"strings"
 
 	"github.com/spf13/cobra"
 )
 
-func runCommand(name string, args ...string) (string, error) {
-	stdout, err := exec.Command(name, args...).Output()
+func installBrewFormulae() error {
+	brewFormulaeStdout, err := RunCommand("brew", "list", "--formulae", "--full-name")
 	if err != nil {
-		return "", fmt.Errorf("Failed to run command %s: %v", name, err)
+		return err
 	}
-
-	return string(stdout), nil
-}
-
-func installPkgs() error {
-	brewFormulaeStdout, err := runCommand("brew", "list", "--formulae")
+	brewCasksStdout, err := RunCommand("brew", "list", "--casks", "--full-name")
 	if err != nil {
 		return err
 	}
 
-	brewFormulae := strings.Split(brewFormulaeStdout, "\n")
-	fmt.Println(brewFormulae)
+	installedBrewFormulae := strings.Split(brewFormulaeStdout, "\n")
+	installedBrewCasks := strings.Split(brewCasksStdout, "\n")
+	installed := append(installedBrewFormulae, installedBrewCasks...)
 
 	// Install brew formulae
+	targetBrewFormulae, err := GetLinesOfFile("init/brew_formulae")
+	if err != nil {
+		return fmt.Errorf("Failed to read brew_formulae: %v", err)
+	}
+	ignoreFiles, err := GetLinesOfFile("init/.installignore")
+	if err != nil {
+		return fmt.Errorf("Failed to read .installignore: %v", err)
+	}
+
+	for _, formula := range targetBrewFormulae {
+		if Contains(ignoreFiles, formula) {
+			fmt.Printf("%s is marked to be skipped.\n", formula)
+			continue
+		}
+
+		if Contains(installed, formula) {
+			fmt.Printf("%s is already installed. Skipped.\n", formula)
+			continue
+		}
+
+		fmt.Printf("### Installing %s ###\n", formula)
+		formulaStdout, err := RunCommand("brew", "install", formula)
+		if err != nil {
+			return fmt.Errorf("Failed to install %s: %v", formula, err)
+		}
+		fmt.Println(formulaStdout)
+		fmt.Printf("Installed %s!\n", formula)
+	}
+
+	return nil
+}
+
+func installOtherPkgs() error {
+	files, err := ListFiles(initDir)
+	if err != nil {
+		return fmt.Errorf("Failed to list files: %v", err)
+	}
+
+	for _, fileInfo := range files {
+		if Contains(ignoreFiles, fileInfo.Name()) {
+			continue
+		}
+
+		if !fileInfo.IsDir() {
+			continue
+		}
+
+		if IsInstalled(fileInfo.Name()) {
+			fmt.Printf("%s is already installed. Skipped.\n", fileInfo.Name())
+			continue
+		}
+
+		filename := fmt.Sprintf("%s/%s/install.sh", initDir, fileInfo.Name())
+		fmt.Printf("### Installing %s ... ###\n", fileInfo.Name())
+		stdout, err := RunCommand("bash", filename)
+		if err != nil {
+			return fmt.Errorf("Failed to run %s: %v", filename, err)
+		}
+		fmt.Print(stdout)
+		fmt.Printf("Installed %s!\n", fileInfo.Name())
+	}
+	return nil
+}
+
+func installPkgs() error {
+	if err := installBrewFormulae(); err != nil {
+		return fmt.Errorf("Brew formulae installation failed: %v", err)
+	}
+	if err := installOtherPkgs(); err != nil {
+		return fmt.Errorf("Other package installation failed: %v", err)
+	}
 
 	// stdout, err := runCommand("bash", "./bootstrap.sh")
 	// fmt.Println(string(stdout))
-	return err
+	return nil
 }
 
 var installPkgsCmd = &cobra.Command{

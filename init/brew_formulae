@@ -10,7 +10,7 @@ github
 gnupg
 go
 google-chrome
-heroku
+heroku/brew/heroku
 jq
 llvm
 lua

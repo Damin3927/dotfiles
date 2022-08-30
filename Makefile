@@ -11,6 +11,7 @@ build_init: build_cli ## Build initialization files
 .PNOHY: bootstrap
 bootstrap: build_cli ## Bootstrap shell enviroments
 	./bin/dotfiles install-pkgs
+	./bootstrap.sh
 
 .PNOHY: init
 init: build_init bootstrap ## Initialize environments

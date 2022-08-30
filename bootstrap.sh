@@ -22,6 +22,3 @@ append_init_script_to_zshrc
 
 # NeoVim setup
 . vim/bootstrap.sh
-
-# Exec installer
-. init/installer.sh
