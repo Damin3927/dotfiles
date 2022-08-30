@@ -1,7 +1,7 @@
 # dotfiles
 
-To install all dotfiles, run the command below:
+To initialize all environments, just run:
 
 ```bash
-$ ./bootstrap.sh
+$ make
 ```
