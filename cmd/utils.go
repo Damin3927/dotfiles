@@ -64,7 +64,7 @@ func WriteToFile(f io.Writer, lines []string) error {
 	return err
 }
 
-func RunCommand(name string, args ...string) (string, error) {
+func RunCommandSilently(name string, args ...string) (string, error) {
 	stdout, err := exec.Command(name, args...).Output()
 	if err != nil {
 		return "", fmt.Errorf("Failed to run command %s: %v", name, err)
@@ -73,8 +73,22 @@ func RunCommand(name string, args ...string) (string, error) {
 	return string(stdout), nil
 }
 
+func RunCommandInShell(name string, args ...string) error {
+	cmd := exec.Command(name, args...)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	err := cmd.Run()
+	if err != nil {
+		return fmt.Errorf("Failed to run command %s: %v", name, err)
+	}
+
+	return nil
+}
+
 func IsInstalled(executable string) bool {
-	_, err := RunCommand("command", "-v", executable)
+	_, err := RunCommandSilently("command", "-v", executable)
 	if err != nil {
 		return false
 	}

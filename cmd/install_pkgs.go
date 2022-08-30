@@ -8,11 +8,11 @@ import (
 )
 
 func installBrewFormulae() error {
-	brewFormulaeStdout, err := RunCommand("brew", "list", "--formulae", "--full-name")
+	brewFormulaeStdout, err := RunCommandSilently("brew", "list", "--formulae", "--full-name")
 	if err != nil {
 		return err
 	}
-	brewCasksStdout, err := RunCommand("brew", "list", "--casks", "--full-name")
+	brewCasksStdout, err := RunCommandSilently("brew", "list", "--casks", "--full-name")
 	if err != nil {
 		return err
 	}
@@ -43,11 +43,10 @@ func installBrewFormulae() error {
 		}
 
 		fmt.Printf("### Installing %s ###\n", formula)
-		formulaStdout, err := RunCommand("brew", "install", formula)
+		err := RunCommandInShell("brew", "install", formula)
 		if err != nil {
 			return fmt.Errorf("Failed to install %s: %v", formula, err)
 		}
-		fmt.Println(formulaStdout)
 		fmt.Printf("Installed %s!\n", formula)
 	}
 
@@ -76,11 +75,10 @@ func installOtherPkgs() error {
 
 		filename := fmt.Sprintf("%s/%s/install.sh", initDir, fileInfo.Name())
 		fmt.Printf("### Installing %s ... ###\n", fileInfo.Name())
-		stdout, err := RunCommand("bash", filename)
+		err := RunCommandInShell("bash", filename)
 		if err != nil {
 			return fmt.Errorf("Failed to run %s: %v", filename, err)
 		}
-		fmt.Print(stdout)
 		fmt.Printf("Installed %s!\n", fileInfo.Name())
 	}
 	return nil
@@ -94,8 +92,6 @@ func installPkgs() error {
 		return fmt.Errorf("Other package installation failed: %v", err)
 	}
 
-	// stdout, err := runCommand("bash", "./bootstrap.sh")
-	// fmt.Println(string(stdout))
 	return nil
 }
 
