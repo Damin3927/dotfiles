@@ -32,8 +32,5 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # zls
 export PATH="${PATH}:${HOME}/.zls"
 
-# llvm
-export PATH="${PATH}:$(brew --prefix llvm)/bin"
-
 abs_path="$(get_abs_path $0)"
 source "${abs_path}/zsh/alias.zsh" "${abs_path}/zsh/option.zsh" "${abs_path}/zsh/generated_init.zsh"
