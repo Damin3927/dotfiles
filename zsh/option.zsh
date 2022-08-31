@@ -9,3 +9,7 @@ setopt share_history
 
 # display completion results in packed way
 setopt list_packed
+
+# display completion results colorfully
+autoload colors
+zstyle ':completion:*' list-colors ''
