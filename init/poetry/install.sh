@@ -1,3 +1,3 @@
 #! /bin/bash
 
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - --no-modify-path
+curl -sSL https://install.python-poetry.org | python3 -

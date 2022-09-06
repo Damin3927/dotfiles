@@ -33,4 +33,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 export PATH="${PATH}:${HOME}/.zls"
 
 abs_path="$(get_abs_path $0)"
-source "${abs_path}/zsh/alias.zsh" "${abs_path}/zsh/option.zsh" "${abs_path}/zsh/generated_init.zsh"
+source "${abs_path}/zsh/alias.zsh"
+source "${abs_path}/zsh/option.zsh"
+source "${abs_path}/zsh/generated_init.zsh"
