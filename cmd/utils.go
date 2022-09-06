@@ -87,10 +87,25 @@ func RunCommandInShell(name string, args ...string) error {
 	return nil
 }
 
-func IsInstalled(executable string) bool {
+func Exists(filename string) bool {
+	_, err := os.Stat(filename)
+	return err == nil
+}
+
+func IsInstalled(initDir, executable string) bool {
 	_, err := RunCommandSilently("command", "-v", executable)
-	if err != nil {
-		return false
+	if err == nil {
+		return true
 	}
-	return true
+
+	installCheckerPath := fmt.Sprintf("%s/%s/install_checker.sh", initDir, executable)
+	fmt.Println(installCheckerPath)
+	if Exists(installCheckerPath) {
+		_, err := RunCommandSilently("bash", "-c", fmt.Sprintf("source %s/%s/install_checker.sh && is_%s_installed", initDir, executable, executable))
+		if err == nil {
+			return true
+		}
+	}
+
+	return false
 }

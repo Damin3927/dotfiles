@@ -68,7 +68,7 @@ func installOtherPkgs() error {
 			continue
 		}
 
-		if IsInstalled(fileInfo.Name()) {
+		if IsInstalled(initDir, fileInfo.Name()) {
 			fmt.Printf("%s is already installed. Skipped.\n", fileInfo.Name())
 			continue
 		}
