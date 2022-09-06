@@ -99,7 +99,6 @@ func IsInstalled(initDir, executable string) bool {
 	}
 
 	installCheckerPath := fmt.Sprintf("%s/%s/install_checker.sh", initDir, executable)
-	fmt.Println(installCheckerPath)
 	if Exists(installCheckerPath) {
 		_, err := RunCommandSilently("bash", "-c", fmt.Sprintf("source %s/%s/install_checker.sh && is_%s_installed", initDir, executable, executable))
 		if err == nil {

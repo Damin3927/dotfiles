@@ -23,6 +23,10 @@ resolve_relative_path () (
     fi
 )
 
+append_to_path() {
+  export PATH="${PATH}:$1"
+}
+
 autoload -Uz compinit && compinit
 
 # 補完で小文字でも大文字にマッチさせる
@@ -30,7 +34,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ### PATH
 # zls
-export PATH="${PATH}:${HOME}/.zls"
+append_to_path "${HOME}/.zls"
 
 abs_path="$(get_abs_path $0)"
 source "${abs_path}/zsh/alias.zsh"

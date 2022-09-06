@@ -1,3 +1,4 @@
 #!/bin/bash
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+append_to_path "${HOME}/.yarn/bin"
+append_to_path "${HOME}/.config/yarn/global/node_modules/.bin"

@@ -1,10 +1,6 @@
 awscli
-bat
 ca-certificates
 cmake
-cue-lang/tap/cue
-deno
-fzf
 gcc
 github
 gnupg
