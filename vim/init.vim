@@ -174,6 +174,9 @@ Plug 'udalov/kotlin-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" GitHub Copilot
+Plug 'github/copilot.vim'
+
 
 call plug#end()
 
