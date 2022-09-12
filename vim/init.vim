@@ -156,9 +156,17 @@ Plug 'rust-lang/rust.vim'
 " zig
 Plug 'ziglang/zig.vim'
 
-" Svelte
+" JavaScript
 Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+" React
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Svelte
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " Go
@@ -173,9 +181,6 @@ Plug 'udalov/kotlin-vim'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-" GitHub Copilot
-Plug 'github/copilot.vim'
 
 
 call plug#end()
@@ -255,7 +260,7 @@ let g:coc_global_extensions = [
 
 
 " Recognize <CR> in coc
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
 
 " Set Background of floating windows
 " possible options can be found by `:h cterm-colors`
@@ -419,3 +424,10 @@ vnoremap <silent> [far-replace]  :Farr<cr>
 let g:vim_current_word#highlight_only_in_focusted_window = 1
 hi CurrentWord ctermbg=53
 hi CurrentWordTwins ctermbg=237
+
+
+""" JavaScript
+" Setup used libraries
+let g:used_javascript_libs = 'react,vue'
+let b:javascript_lib_use_react = 1
+let b:javascript_lib_use_vue = 1
