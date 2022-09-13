@@ -43,8 +43,6 @@ fi
 mkdir -p ~/.config/nvim/colors
 curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim > /dev/null
 
-yes | "$(brew --prefix)/opt/fzf/install" > /dev/null
-
 # install pynvim into python
 pi pynvim
 

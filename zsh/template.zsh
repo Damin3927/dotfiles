@@ -24,10 +24,17 @@ resolve_relative_path () (
 )
 
 append_to_path() {
-  export PATH="${PATH}:$1"
+  export PATH="$1:${PATH}"
 }
 
-autoload -Uz compinit && compinit
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle :compinstall filename '/Users/damin/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -37,6 +44,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 append_to_path "${HOME}/.zls"
 
 abs_path="$(get_abs_path $0)"
+source "${abs_path}/zsh/generated_init.zsh"
+source "${abs_path}/zsh/zinit.zsh"
 source "${abs_path}/zsh/alias.zsh"
 source "${abs_path}/zsh/option.zsh"
-source "${abs_path}/zsh/generated_init.zsh"
