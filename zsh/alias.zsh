@@ -48,9 +48,9 @@ alias pip='pip3'
 # venv
 alias venv='source .venv/bin/activate'
 
-# poetry
-alias poact='source $(poetry env info --path)/bin/activate'
-
 # NeoVim
 alias vi='nvim'
 alias vim='nvim'
+
+# IP Address
+alias myip='curl http://ipecho.net/plain'
