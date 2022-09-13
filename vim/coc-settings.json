@@ -47,5 +47,6 @@
   "python.formatting.provider": "black",
   "zig.path": "zls",
   "svelte.enable-ts-plugin": true,
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "python.linting.pylintEnabled": true
 }
