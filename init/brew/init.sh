@@ -1,8 +1,11 @@
 #!/bin/bash
 
-append_to_path "/opt/homebrew/bin"
+arch="$(uname -m)"
+if [ "${arch}" = arm64 ]; then
+  append_to_path "/opt/homebrew/bin"
+fi
 
 # brew zsh compinit
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(brew shellenv)"
