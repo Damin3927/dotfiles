@@ -1,9 +1,10 @@
+# p10k
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+
 # Syntax Highlighting
 zinit light zsh-users/zsh-syntax-highlighting
 
-# pure theme
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
-
 # completions
 zinit light zsh-users/zsh-completions
+
