@@ -403,13 +403,15 @@ command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 nnoremap [fzf] <Nop>
 nmap <Leader>f [fzf]
+" TODO: Replace with Telescope
 nnoremap <silent> [fzf]h :<C-u>History<CR>
-nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
+nnoremap <silent> [fzf]b :<C-u>Telescope buffers<CR>
 nnoremap <silent> [fzf]f :<C-u>Files<CR>
-nnoremap <silent> [fzf]g :<C-u>GFiles<CR>
+nnoremap <silent> [fzf]g :<C-u>Telescope find_files<CR>
 nnoremap <silent> [fzf]s :<C-u>GFiles?<CR>
 nnoremap <silent> [fzf]c :<C-u>Commands<CR>
-nnoremap <silent> [fzf]r :<C-u>Rg<CR>
+nnoremap <silent> [fzf]r :<C-u>Telescope live_grep<CR>
+nnoremap <silent> [fzf]u :<C-u>Telescope grep_string<CR>
 
 
 """ open-browser
