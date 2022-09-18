@@ -13,9 +13,6 @@ filetype plugin indent on
 " Auto reload of init.vim
 autocmd! bufwritepost $MYVIMRC source %
 
-" Color scheme
-colorscheme hybrid
-
 " Syntax
 syntax enable
 
@@ -200,6 +197,9 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
 " scrollbar
 Plug 'petertriho/nvim-scrollbar'
+
+" color scheme
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 
 call plug#end()
@@ -597,3 +597,8 @@ EOF
 
 """ scrollbar
 lua require("scrollbar").setup()
+
+
+""" color scheme
+" Color scheme
+colorscheme tokyonight-night

@@ -36,12 +36,6 @@ if [ ! -e "$coc_config_file_path" ]; then
   ln -s "$(get_abs_path "coc-settings.json")" "${coc_config_file_path}"
 fi
 
-# Install color scheme
-if [ ! -e "${HOME}/.config/nvim/colors/hybrid.vim" ]; then
-  mkdir -p ~/.config/nvim/colors
-  curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim > /dev/null
-fi
-
 # install pynvim into python
 pi pynvim
 
