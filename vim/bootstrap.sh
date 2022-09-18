@@ -18,14 +18,11 @@ function is_installed_into_pip() {
 }
 
 
-# install neovim dependencies
-brew tap homebrew/cask-fonts && brew install --cask font-ubuntu-mono-nerd-font
-
-
 # install https://github.com/junegunn/vim-plug
-
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null
+if [ ! -e "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; then
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > /dev/null
+fi
 
 config_path=${HOME}/.config/nvim
 config_file_path=${config_path}/init.vim
@@ -40,26 +37,13 @@ if [ ! -e "$coc_config_file_path" ]; then
 fi
 
 # Install color scheme
-mkdir -p ~/.config/nvim/colors
-curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim > /dev/null
+if [ ! -e "${HOME}/.config/nvim/colors/hybrid.vim" ]; then
+  mkdir -p ~/.config/nvim/colors
+  curl https://raw.githubusercontent.com/w0ng/vim-hybrid/master/colors/hybrid.vim -o ~/.config/nvim/colors/hybrid.vim > /dev/null
+fi
 
 # install pynvim into python
 pi pynvim
-
-# Install rust-analyzer
-if ! command -v rust-analyzer &> /dev/null; then
-  git clone https://github.com/rust-lang/rust-analyzer.git
-  cd rust-analyzer || exit
-  cargo xtask install --server
-  cd ..
-  rm -rf rust-analyzer
-fi
-
-# Install zls
-if ! command -v zls &> /dev/null; then
-  zls_version=0.9.0
-  mkdir "${HOME}/.zls" && cd "${HOME}/.zls" && curl -L "https://github.com/zigtools/zls/releases/download/${zls_version}/x86_64-macos.tar.xz" | tar -xJ --strip-components=1 -C . && chmod +x zls
-fi
 
 # Configure rustup
 rustup component add rls rust-analysis rust-src
