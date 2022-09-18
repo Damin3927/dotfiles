@@ -193,8 +193,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " devicons
 Plug 'kyazdani42/nvim-web-devicons'
-
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+" bufferline
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+
+" scrollbar
+Plug 'petertriho/nvim-scrollbar'
 
 
 call plug#end()
@@ -240,6 +245,9 @@ nnoremap <silent> [fugitive]g V:GBrowse<CR>
 
 
 """ Coc
+set pumblend=30
+set winblend=20
+
 " Install default extensions
 let g:coc_global_extensions = [
   \'coc-diagnostic',
@@ -578,3 +586,14 @@ require'nvim-web-devicons'.setup {
  default = true;
 }
 EOF
+
+
+""" bufferline
+set termguicolors
+lua << EOF
+require("bufferline").setup{}
+EOF
+
+
+""" scrollbar
+lua require("scrollbar").setup()

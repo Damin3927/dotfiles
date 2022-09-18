@@ -44,6 +44,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 append_to_path "${HOME}/.zls"
 
 abs_path="$(get_abs_path $0)"
+eval "$(${abs_path}/bin/dotfiles completion zsh)"
 source "${abs_path}/zsh/generated_init.zsh"
 source "${abs_path}/zsh/zinit.zsh"
 source "${abs_path}/zsh/alias.zsh"
