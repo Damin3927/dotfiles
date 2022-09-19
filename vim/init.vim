@@ -187,6 +187,7 @@ Plug 'nvim-lua/plenary.nvim'
 
 " treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 
 " devicons
 Plug 'kyazdani42/nvim-web-devicons'
@@ -206,6 +207,14 @@ Plug 'xiyaowong/nvim-transparent'
 
 " color code colorizer
 Plug 'norcalli/nvim-colorizer.lua'
+
+" % extension
+Plug 'andymass/vim-matchup'
+
+" Rust crates
+Plug 'nvim-lua/plenary.nvim'
+Plug 'saecki/crates.nvim'
+
 
 call plug#end()
 
@@ -568,6 +577,15 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+  },
+
+  matchup = {
+    enable = true,
+  },
 }
 EOF
 
@@ -616,3 +634,7 @@ colorscheme tokyonight-night
 
 """ color code colorizer
 lua require'colorizer'.setup()
+
+
+""" Rust crates
+lua require('crates').setup()
