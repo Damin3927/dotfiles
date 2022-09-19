@@ -201,6 +201,8 @@ Plug 'petertriho/nvim-scrollbar'
 " color scheme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+" transparent
+Plug 'xiyaowong/nvim-transparent'
 
 call plug#end()
 
