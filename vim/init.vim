@@ -108,8 +108,8 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 " sandwich
 Plug 'machakann/vim-sandwich'
 
-" lightline
-" Plug 'itchyny/lightline.vim'
+" lualine
+Plug 'nvim-lualine/lualine.nvim'
 
 " emmet
 Plug 'mattn/emmet-vim'
@@ -394,17 +394,10 @@ map <silent> [Tag]p :tabprevious<CR>
 " tp jump to the previous tab
 
 
-""" lightline
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+""" lualine
+lua << END
+require('lualine').setup()
+END
 
 """ fzf
 command! -bang -nargs=? -complete=dir Files
