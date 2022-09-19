@@ -204,6 +204,9 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " transparent
 Plug 'xiyaowong/nvim-transparent'
 
+" color code colorizer
+Plug 'norcalli/nvim-colorizer.lua'
+
 call plug#end()
 
 
@@ -609,3 +612,7 @@ lua require("scrollbar").setup()
 """ color scheme
 " Color scheme
 colorscheme tokyonight-night
+
+
+""" color code colorizer
+lua require'colorizer'.setup()
