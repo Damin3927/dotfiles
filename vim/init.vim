@@ -109,7 +109,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'machakann/vim-sandwich'
 
 " lightline
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 
 " emmet
 Plug 'mattn/emmet-vim'
@@ -591,7 +591,19 @@ EOF
 """ bufferline
 set termguicolors
 lua << EOF
-require("bufferline").setup{}
+require("bufferline").setup{
+  options = {
+    offsets = {
+      {
+        filetype = "fern",
+        text = "File Explorer",
+        text_align = "left",
+        separator = true,
+      }
+    },
+    separator_style = "slant",
+  }
+}
 EOF
 
 
