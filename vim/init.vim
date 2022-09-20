@@ -215,6 +215,10 @@ Plug 'andymass/vim-matchup'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'saecki/crates.nvim'
 
+" session manager
+Plug 'rmagatti/auto-session'
+Plug 'rmagatti/session-lens'
+
 
 call plug#end()
 
@@ -638,3 +642,7 @@ lua require'colorizer'.setup()
 
 """ Rust crates
 lua require('crates').setup()
+
+
+""" session manager
+lua require("session-lens").setup()
