@@ -215,6 +215,9 @@ Plug 'andymass/vim-matchup'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'saecki/crates.nvim'
 
+" dasbboard
+Plug 'goolord/alpha-nvim'
+
 
 call plug#end()
 
@@ -638,3 +641,7 @@ lua require'colorizer'.setup()
 
 """ Rust crates
 lua require('crates').setup()
+
+
+""" dashboard
+lua require'alpha'.setup(require'alpha.themes.theta'.config)
