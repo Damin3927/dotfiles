@@ -218,6 +218,9 @@ Plug 'saecki/crates.nvim'
 " dasbboard
 Plug 'goolord/alpha-nvim'
 
+" bclose
+Plug 'rbgrouleff/bclose.vim'
+
 
 call plug#end()
 
