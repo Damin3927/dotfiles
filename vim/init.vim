@@ -221,6 +221,9 @@ Plug 'goolord/alpha-nvim'
 " bclose
 Plug 'rbgrouleff/bclose.vim'
 
+" test runner
+Plug 'vim-test/vim-test'
+
 
 call plug#end()
 
@@ -648,3 +651,15 @@ lua require('crates').setup()
 
 """ dashboard
 lua require'alpha'.setup(require'alpha.themes.theta'.config)
+
+
+""" buffergator
+let g:buffergator_suppress_keymaps=1
+
+
+""" test runner
+" nnoremap <silent> <leader>t :<C-u>TestNearest<CR>
+nnoremap <silent> <leader>T :<C-u>TestFile<CR>
+nnoremap <silent> <leader>a :<C-u>TestSuite<CR>
+nnoremap <silent> <leader>l :<C-u>TestLast<CR>
+nnoremap <silent> <leader>g :<C-u>TestVisit<CR>
