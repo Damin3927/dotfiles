@@ -279,7 +279,6 @@ let g:coc_global_extensions = [
   \'coc-clangd',
   \'coc-css',
   \'coc-css',
-  \'coc-deno',
   \'coc-diagnostic',
   \'coc-docker',
   \'coc-eslint',
