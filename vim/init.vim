@@ -227,6 +227,9 @@ Plug 'vim-test/vim-test'
 " easymotion
 Plug 'easymotion/vim-easymotion'
 
+" racket
+Plug 'wlangstroth/vim-racket'
+
 
 call plug#end()
 
