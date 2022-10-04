@@ -234,6 +234,9 @@ Plug 'easymotion/vim-easymotion'
 " racket
 Plug 'wlangstroth/vim-racket'
 
+" uuid
+Plug 'kburdett/vim-nuuid'
+
 
 call plug#end()
 
