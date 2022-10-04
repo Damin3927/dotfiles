@@ -7,6 +7,8 @@ set nowritebackup
 set shortmess+=c
 set signcolumn=number
 
+let g:arch = system('uname -m')
+
 " enable plugin/indent by file type
 filetype plugin indent on
 
@@ -186,8 +188,10 @@ Plug 'rcarriga/nvim-notify'
 Plug 'nvim-lua/plenary.nvim'
 
 " treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'p00f/nvim-ts-rainbow'
+if arch != 'x86_64'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'p00f/nvim-ts-rainbow'
+endif
 
 " devicons
 Plug 'kyazdani42/nvim-web-devicons'
@@ -560,48 +564,50 @@ autocmd User CocStatusChange call s:StatusNotify()
 
 """ nvim-treesitter
 lua << EOF
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = "all",
+if vim.g.arch ~= "x86_64" then
+  require'nvim-treesitter.configs'.setup {
+    -- A list of parser names, or "all"
+    ensure_installed = "all",
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
 
-  -- Automatically install missing parsers when entering buffer
-  auto_install = true,
+    -- Automatically install missing parsers when entering buffer
+    auto_install = true,
 
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = { "phpdoc" },
+    -- List of parsers to ignore installing (for "all")
+    ignore_install = { "phpdoc" },
 
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+    ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+    -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
 
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
+    highlight = {
+      -- `false` will disable the whole extension
+      enable = true,
 
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    disable = {},
+      -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+      -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+      -- the name of the parser)
+      -- list of language that will be disabled
+      disable = {},
 
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
+      -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+      -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+      -- Using this option may slow down your editor, and you may see some duplicate highlights.
+      -- Instead of true it can also be a list of languages
+      additional_vim_regex_highlighting = false,
+    },
 
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-  },
+    rainbow = {
+      enable = true,
+      extended_mode = true,
+    },
 
-  matchup = {
-    enable = true,
-  },
-}
+    matchup = {
+      enable = true,
+    },
+  }
+end
 EOF
 
 
