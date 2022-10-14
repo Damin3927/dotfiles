@@ -237,6 +237,9 @@ Plug 'wlangstroth/vim-racket'
 " uuid
 Plug 'kburdett/vim-nuuid'
 
+" asm support
+Plug 'shirk/vim-gas'
+
 
 call plug#end()
 
