@@ -289,6 +289,7 @@ set winblend=20
 
 " Install default extensions
 let g:coc_global_extensions = [
+  \'@yaegassy/coc-tailwindcss3',
   \'coc-clangd',
   \'coc-css',
   \'coc-css',
@@ -437,6 +438,15 @@ map <silent> [Tag]p :tabprevious<CR>
 lua << END
 require('lualine').setup()
 END
+
+
+""" emmet
+let g:user_emmet_settings = {  
+\  'typescript': {
+\    'extends': 'jsx',
+\  },
+\}
+
 
 """ fzf
 command! -bang -nargs=? -complete=dir Files
