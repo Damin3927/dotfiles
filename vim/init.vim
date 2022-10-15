@@ -691,3 +691,7 @@ nnoremap <silent> <leader>T :<C-u>TestFile<CR>
 nnoremap <silent> <leader>a :<C-u>TestSuite<CR>
 nnoremap <silent> <leader>l :<C-u>TestLast<CR>
 nnoremap <silent> <leader>g :<C-u>TestVisit<CR>
+
+
+""" python location
+let g:python3_host_prog = '~/.pyenv/shims/python3'
