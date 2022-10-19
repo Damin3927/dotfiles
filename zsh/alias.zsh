@@ -58,3 +58,6 @@ alias myip='curl http://ipecho.net/plain'
 # x86_64 zsh
 alias x86_64='arch -x86_64 zsh'
 alias arm64='arch -arm64 zsh'
+
+# pnpm
+alias pn='pnpm'
