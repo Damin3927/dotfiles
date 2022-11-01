@@ -308,7 +308,6 @@ let g:coc_global_extensions = [
   \'coc-prettier' ,
   \'coc-protobuf',
   \'coc-pyright',
-  \'coc-rls',
   \'coc-rust-analyzer',
   \'coc-sh',
   \'coc-snippets',
