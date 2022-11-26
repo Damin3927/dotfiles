@@ -43,6 +43,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # zls
 append_to_path "${HOME}/.zls"
 
+# brew setup
+arch="$(uname -m)"
+if [ "${arch}" = arm64 ]; then
+  append_to_path "/opt/homebrew/bin"
+fi
+
 abs_path="$(get_abs_path $0)"
 eval "$(${abs_path}/bin/dotfiles completion zsh)"
 source "${abs_path}/zsh/generated_init.zsh"
