@@ -24,6 +24,10 @@ resolve_relative_path () (
 )
 
 append_to_path() {
+  export PATH="${PATH}:$1"
+}
+
+prepend_to_path() {
   export PATH="$1:${PATH}"
 }
 
@@ -46,7 +50,7 @@ append_to_path "${HOME}/.zls"
 # brew setup
 arch="$(uname -m)"
 if [ "${arch}" = arm64 ]; then
-  append_to_path "/opt/homebrew/bin"
+  prepend_to_path "/opt/homebrew/bin"
 fi
 
 abs_path="$(get_abs_path $0)"
