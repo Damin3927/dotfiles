@@ -36,6 +36,6 @@
 | open-browser | \<Leader>o  | Open the url under the cursor / Google the sentence/word under the cursor |                        |
 | (Terminal)   | \<Leader>d  | Open a new terminal at bottom                                             |
 |              | \<Leader>D  | Open a new terminal at right                                              |                        |
-|              | \<Leader>s  | Open a new termianl in the same window                                    |                        |
+|              | \<Leader>s  | Open a new terminal in the same window                                    |                        |
 | far.vim      | \<Leader>r  | Start an interactive far replace shell                                    |                        |
 

@@ -315,6 +315,7 @@ let g:coc_global_extensions = [
   \'coc-solidity',
   \'coc-svelte',
   \'coc-tsserver',
+  \'coc-typos',
   \'coc-vetur',
   \'coc-zig',
 \]
@@ -629,12 +630,12 @@ EOF
 """ devicons
 lua << EOF
 require'nvim-web-devicons'.setup {
- -- your personnal icons can go here (to override)
+ -- your personal icons can go here (to override)
  -- you can specify color or cterm_color instead of specifying both of them
  -- DevIcon will be appended to `name`
  override = {};
  -- globally enable default icons (default to false)
- -- will get overriden by `get_icons` option
+ -- will get overridden by `get_icons` option
  default = true;
 }
 EOF
