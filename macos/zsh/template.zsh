@@ -47,6 +47,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # zls
 append_to_path "${HOME}/.zls"
 
+# JetBrains Toolbox
+append_to_path "${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
+
 # brew setup
 arch="$(uname -m)"
 if [ "${arch}" = arm64 ]; then
