@@ -37,6 +37,9 @@ alias pip='pip3'
 # venv
 alias venv='source .venv/bin/activate'
 
+# poetry
+alias posh='poetry shell'
+
 # NeoVim
 alias vi='nvim'
 alias vim='nvim'
