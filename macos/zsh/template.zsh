@@ -56,6 +56,8 @@ if [ "${arch}" = arm64 ]; then
   prepend_to_path "/opt/homebrew/bin"
 fi
 
+set -o vi
+
 abs_path="$(get_abs_path $0)"
 eval "$(${abs_path}/bin/dotfiles completion zsh)"
 source "${abs_path}/zsh/generated_init.zsh"
