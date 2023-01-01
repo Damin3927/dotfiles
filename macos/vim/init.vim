@@ -313,6 +313,7 @@ let g:coc_global_extensions = [
   \'coc-snippets',
   \'coc-solargraph',
   \'coc-solidity',
+  \'coc-sourcekit',
   \'coc-svelte',
   \'coc-tsserver',
   \'coc-typos',
