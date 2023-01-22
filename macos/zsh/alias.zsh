@@ -1,8 +1,3 @@
-# ls
-alias l='ls -1A --color'
-alias ll='ls -lh --color'
-alias la='ll -A --color'
-
 # mkdir
 alias mkdir='mkdir -p'
 
