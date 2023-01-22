@@ -195,7 +195,7 @@ endif
 
 " devicons
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim'
 
 " bufferline
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
@@ -455,11 +455,10 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap [fzf] <Nop>
 nmap <Leader>f [fzf]
 " TODO: Replace with Telescope
-nnoremap <silent> [fzf]h :<C-u>History<CR>
+nnoremap <silent> [fzf]h :<C-u>Telescope oldfiles<CR>
 nnoremap <silent> [fzf]b :<C-u>Telescope buffers<CR>
-nnoremap <silent> [fzf]f :<C-u>Files<CR>
-nnoremap <silent> [fzf]g :<C-u>Telescope find_files<CR>
-nnoremap <silent> [fzf]s :<C-u>GFiles?<CR>
+nnoremap <silent> [fzf]f :<C-u>Telescope find_files<CR>
+nnoremap <silent> [fzf]g :<C-u>Telescope git_files<CR>
 nnoremap <silent> [fzf]c :<C-u>Commands<CR>
 nnoremap <silent> [fzf]r :<C-u>Telescope live_grep<CR>
 nnoremap <silent> [fzf]u :<C-u>Telescope grep_string<CR>
@@ -696,3 +695,21 @@ nnoremap <silent> <leader>g :<C-u>TestVisit<CR>
 
 """ python location
 let g:python3_host_prog = '~/.pyenv/shims/python3'
+
+
+""" Telescope
+lua << EOF
+require("telescope").setup{
+  pickers = {
+    live_grep = {
+      additional_args = function(opts)
+        return {
+          "--hidden",
+          "--glob",
+          "!**/.git/*",
+        }
+      end
+    },
+  },
+}
+EOF
