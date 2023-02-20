@@ -320,6 +320,7 @@ let g:coc_global_extensions = [
   \'coc-typos',
   \'coc-vetur',
   \'coc-zig',
+  \'coc-zls',
 \]
 
 
