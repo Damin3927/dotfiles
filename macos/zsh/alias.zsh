@@ -51,3 +51,6 @@ alias pn='pnpm'
 
 # Xcode
 alias xcode='open -a Xcode'
+
+# terraform
+alias tf='terraform'
