@@ -48,3 +48,6 @@ alias arm64='arch -arm64 zsh'
 
 # pnpm
 alias pn='pnpm'
+
+# Xcode
+alias xcode='open -a Xcode'
