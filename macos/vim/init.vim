@@ -240,6 +240,9 @@ Plug 'kburdett/vim-nuuid'
 " asm support
 Plug 'shirk/vim-gas'
 
+" terraform
+Plug 'hashivim/vim-terraform'
+
 
 call plug#end()
 
