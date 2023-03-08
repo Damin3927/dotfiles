@@ -243,6 +243,9 @@ Plug 'shirk/vim-gas'
 " terraform
 Plug 'hashivim/vim-terraform'
 
+" Swift
+Plug 'keith/swift.vim'
+
 
 call plug#end()
 

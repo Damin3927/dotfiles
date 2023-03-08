@@ -12,6 +12,10 @@
       "filetypes": ["terraform", "tf"],
       "initializationOptions": {},
       "settings": {}
+    },
+    "swift": {
+      "command": "sourcekit-lsp",
+      "filetypes": ["swift"]
     }
   },
   "diagnostic-languageserver.filetypes": {
