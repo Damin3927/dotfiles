@@ -246,6 +246,9 @@ Plug 'hashivim/vim-terraform'
 " Swift
 Plug 'keith/swift.vim'
 
+" mdx
+Plug 'jxnblk/vim-mdx-js'
+
 
 call plug#end()
 
