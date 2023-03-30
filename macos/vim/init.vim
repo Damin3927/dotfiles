@@ -299,6 +299,8 @@ set winblend=20
 " Install default extensions
 let g:coc_global_extensions = [
   \'@yaegassy/coc-tailwindcss3',
+  \'@yaegassy/coc-volar',
+  \'@yaegassy/coc-volar-tools',
   \'coc-clangd',
   \'coc-css',
   \'coc-css',
@@ -328,7 +330,6 @@ let g:coc_global_extensions = [
   \'coc-svelte',
   \'coc-tsserver',
   \'coc-typos',
-  \'coc-vetur',
   \'coc-zig',
   \'coc-zls',
 \]
@@ -725,3 +726,7 @@ require("telescope").setup{
   },
 }
 EOF
+
+"""volar
+" set - as a keyword in vue file
+autocmd Filetype vue setlocal iskeyword+=-
