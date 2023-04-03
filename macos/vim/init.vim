@@ -730,3 +730,12 @@ EOF
 """volar
 " set - as a keyword in vue file
 autocmd Filetype vue setlocal iskeyword+=-
+
+
+""" ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+
+let g:UltiSnipsEditSplit="vertical"
