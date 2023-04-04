@@ -1,7 +1,7 @@
 awscli
 ca-certificates
 cmake
-font-ubuntu-mono-nerd-font
+homebrew/cask-fonts/font-ubuntu-mono-nerd-font
 gcc
 github
 gnupg
