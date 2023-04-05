@@ -1,12 +1,13 @@
 awscli
 ca-certificates
 cmake
-homebrew/cask-fonts/font-ubuntu-mono-nerd-font
 gcc
 github
 gnupg
 google-chrome
+hashicorp/tap/terraform-ls
 heroku/brew/heroku
+homebrew/cask-fonts/font-ubuntu-mono-nerd-font
 jq
 llvm
 lua
