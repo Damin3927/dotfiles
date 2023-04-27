@@ -164,6 +164,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " React
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mlaursen/vim-react-snippets'
 
 " Svelte
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
