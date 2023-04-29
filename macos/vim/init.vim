@@ -250,6 +250,9 @@ Plug 'keith/swift.vim'
 " mdx
 Plug 'jxnblk/vim-mdx-js'
 
+" ChatGPT
+Plug 'CoderCookE/vim-chatgpt'
+
 
 call plug#end()
 
@@ -740,3 +743,4 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 
 let g:UltiSnipsEditSplit="vertical"
+let g:chat_gpt_key=""
