@@ -62,3 +62,7 @@ source "${abs_path}/zsh/generated_init.zsh"
 source "${abs_path}/zsh/zinit.zsh"
 source "${abs_path}/zsh/alias.zsh"
 source "${abs_path}/zsh/option.zsh"
+
+
+# set editor
+export EDITOR='nvim'
