@@ -253,6 +253,9 @@ Plug 'jxnblk/vim-mdx-js'
 " ChatGPT
 Plug 'CoderCookE/vim-chatgpt'
 
+" Quickrun
+Plug 'thinca/vim-quickrun'
+
 
 call plug#end()
 
