@@ -256,6 +256,9 @@ Plug 'CoderCookE/vim-chatgpt'
 " Quickrun
 Plug 'thinca/vim-quickrun'
 
+" Astro
+Plug 'wuelnerdotexe/vim-astro'
+
 
 call plug#end()
 
@@ -305,6 +308,7 @@ set winblend=20
 
 " Install default extensions
 let g:coc_global_extensions = [
+  \'@yaegassy/coc-astro',
   \'@yaegassy/coc-tailwindcss3',
   \'@yaegassy/coc-volar',
   \'@yaegassy/coc-volar-tools',
