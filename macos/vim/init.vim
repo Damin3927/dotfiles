@@ -751,3 +751,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 let g:UltiSnipsEditSplit="vertical"
 let g:chat_gpt_key=""
+
+
+""" Astro
+let g:astro_typescript = 'enable'
