@@ -1,0 +1,16 @@
+# Go
+
+snippet ctxb "context.Background()" i
+context.Background()
+endsnippet
+
+snippet sqlite "sqlite import" b
+_ "github.com/mattn/go-sqlite3"
+endsnippet
+
+snippet errnn "Error return nil and err" !b
+if err != nil {
+	return nil, err
+}
+${0}
+endsnippet
