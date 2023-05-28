@@ -153,4 +153,7 @@ return require("packer").startup(function (use)
       keymap("n", "<silent>cd", ":<C-u>CocDiagnostic<CR>", { silent = true, noremap = true })
     end
   }
+
+  -- denops.vim
+  use 'vim-denops/denops.vim'
 end)
