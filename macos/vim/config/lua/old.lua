@@ -134,9 +134,6 @@ Plug 'rbgrouleff/bclose.vim'
 " test runner
 Plug 'vim-test/vim-test'
 
-" easymotion
-Plug 'easymotion/vim-easymotion'
-
 " racket
 Plug 'wlangstroth/vim-racket'
 

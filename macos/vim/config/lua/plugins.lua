@@ -156,4 +156,19 @@ return require("packer").startup(function (use)
 
   -- denops.vim
   use 'vim-denops/denops.vim'
+
+  -- easymotion
+  use {
+    'easymotion/vim-easymotion',
+    config = function()
+      local keymap = vim.api.nvim_set_keymap
+
+      vim.g.EasyMotion_do_mapping = 0 -- disable default mappings
+      vim.g.EasyMotion_smartcase = 1
+      keymap("n", "<Leader>j", "<Plug>(easymotion-j)", { noremap = true })
+      keymap("n", "<Leader>k", "<Plug>(easymotion-k)", { noremap = true })
+
+      keymap("n", "/", "<Plug>(easymotion-sn)", { noremap = true })
+    end
+  }
 end)
