@@ -171,4 +171,7 @@ return require("packer").startup(function (use)
       keymap("n", "/", "<Plug>(easymotion-sn)", { noremap = true })
     end
   }
+
+  -- dentaku
+  use 'rapan931/dentaku.nvim'
 end)
