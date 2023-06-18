@@ -174,4 +174,7 @@ return require("packer").startup(function (use)
 
   -- dentaku
   use 'rapan931/dentaku.nvim'
+
+  -- GitHub Copilot
+  use 'github/copilot.vim'
 end)
