@@ -7,4 +7,3 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 # completions
 zinit light zsh-users/zsh-completions
-

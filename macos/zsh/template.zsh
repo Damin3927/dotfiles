@@ -57,7 +57,6 @@ if [ "${arch}" = arm64 ]; then
 fi
 
 abs_path="$(get_abs_path $0)"
-eval "$(${abs_path}/bin/dotfiles completion zsh)"
 source "${abs_path}/zsh/generated_init.zsh"
 source "${abs_path}/zsh/zinit.zsh"
 source "${abs_path}/zsh/alias.zsh"

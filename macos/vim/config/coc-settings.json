@@ -67,6 +67,5 @@
   "zig.path": "zls",
   "svelte.enable-ts-plugin": true,
   "eslint.format.enable": true,
-  "python.linting.pylintEnabled": true,
-  "rust-analyzer.checkOnSave.command": "cargo clippy"
+  "python.linting.pylintEnabled": true
 }
