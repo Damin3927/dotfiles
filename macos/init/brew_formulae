@@ -2,6 +2,7 @@ awscli
 ca-certificates
 cmake
 gcc
+gh
 github
 gnupg
 google-chrome
