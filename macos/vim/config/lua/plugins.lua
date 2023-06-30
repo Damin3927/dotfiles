@@ -177,4 +177,19 @@ return require("packer").startup(function (use)
 
   -- GitHub Copilot
   use 'github/copilot.vim'
+
+  -- ChatGPT
+  use 'CoderCookE/vim-chatgpt'
+
+  use({
+    "jackMort/ChatGPT.nvim",
+      config = function()
+        require("chatgpt").setup()
+      end,
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
+  })
 end)

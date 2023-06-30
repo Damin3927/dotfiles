@@ -152,9 +152,6 @@ Plug 'keith/swift.vim'
 " mdx
 Plug 'jxnblk/vim-mdx-js'
 
-" ChatGPT
-Plug 'CoderCookE/vim-chatgpt'
-
 " Quickrun
 Plug 'thinca/vim-quickrun'
 
