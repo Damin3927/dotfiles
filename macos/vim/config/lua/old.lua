@@ -3,8 +3,6 @@ let g:arch = system('uname -m')
 
 " vim-plug
 call plug#begin()
-" vimspector
-Plug 'puremourning/vimspector'
 
 " fugitive
 Plug 'tpope/vim-fugitive'
@@ -199,13 +197,6 @@ nnoremap <silent> [fugitive]p :G push<CR>
 nnoremap <silent> [fugitive]l :G pull<CR>
 nnoremap <silent> [fugitive]b :GBranches<CR>
 nnoremap <silent> [fugitive]g V:GBrowse<CR>
-
-
-""" vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-let g:vimspector_install_gadgets = [
-  \'debugpy',
-\]
 
 
 """ Tab keybindings

@@ -200,4 +200,39 @@ return require("packer").startup(function (use)
       require("mini.ai").setup({})
     end
   })
+
+  -- dap
+  use {
+    'mfussenegger/nvim-dap',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<F5>', ':DapContinue<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<F10>', ':DapStepOver<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<F11>', ':DapStepInto<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<F12>', ':DapStepOut<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>B', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Breakpoint condition: "))<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>lp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>gr', ':lua require("dap").repl.open()<CR>', { silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>gl', ':lua require("dap").run_last()<CR>', { silent = true })
+    end
+  }
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      'mfussenegger/nvim-dap',
+    },
+    config = function()
+      require("dapui").setup()
+      vim.api.nvim_set_keymap('n', '<leader>G', ':lua require("dapui").toggle()<CR>', {})
+    end
+  }
+  use {
+    'mfussenegger/nvim-dap-python',
+    requires = {
+      'mfussenegger/nvim-dap',
+    },
+    config = function()
+      require("dap-python").setup('~/.pyenv/shims/python3')
+    end
+  }
 end)
