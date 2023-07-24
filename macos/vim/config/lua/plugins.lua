@@ -192,4 +192,12 @@ return require("packer").startup(function (use)
         "nvim-telescope/telescope.nvim"
       }
   })
+
+  -- mini.nvim
+  use({
+    "echasnovski/mini.nvim",
+    config = function()
+      require("mini.ai").setup({})
+    end
+  })
 end)
