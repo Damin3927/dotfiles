@@ -7,28 +7,10 @@ call plug#begin()
 " fugitive
 Plug 'tpope/vim-fugitive'
 
-" CursorHold event (cuz native CursorHold event doesn't work in NeoVim)
-Plug 'antoinemadec/FixCursorHold.nvim'
-
-" sandwich
-Plug 'machakann/vim-sandwich'
-
-" lualine
-Plug 'nvim-lualine/lualine.nvim'
-
-" emmet
-Plug 'mattn/emmet-vim'
-
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
-
-" tcomment
-Plug 'tomtom/tcomment_vim'
-
-" browser
-Plug 'tyru/open-browser.vim'
 
 " far.vim
 Plug 'brooth/far.vim'
@@ -90,12 +72,6 @@ Plug 'rcarriga/nvim-notify'
 
 " libraries
 Plug 'nvim-lua/plenary.nvim'
-
-" treesitter
-if arch != 'x86_64'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'p00f/nvim-ts-rainbow'
-endif
 
 " devicons
 Plug 'kyazdani42/nvim-web-devicons'
@@ -245,21 +221,6 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp jump to the previous tab
 
-
-""" lualine
-lua << END
-require('lualine').setup()
-END
-
-
-""" emmet
-let g:user_emmet_settings = {  
-\  'typescript': {
-\    'extends': 'jsx',
-\  },
-\}
-
-
 """ fzf
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
@@ -273,11 +234,6 @@ nnoremap <silent> [fzf]g :<C-u>Telescope git_files<CR>
 nnoremap <silent> [fzf]c :<C-u>Commands<CR>
 nnoremap <silent> [fzf]r :<C-u>Telescope live_grep<CR>
 nnoremap <silent> [fzf]u :<C-u>Telescope grep_string<CR>
-
-
-""" open-browser
-nnoremap <Leader>o <Plug>(openbrowser-smart-search)
-vnoremap <Leader>o <Plug>(openbrowser-smart-search)
 
 
 """ terminal
@@ -387,56 +343,6 @@ endfunction
 autocmd User CocNvimInit call s:InitCoc()
 autocmd User CocDiagnosticChange call s:DiagnosticNotify()
 autocmd User CocStatusChange call s:StatusNotify()
-
-
-""" nvim-treesitter
-lua << EOF
-if vim.g.arch ~= "x86_64" then
-  require'nvim-treesitter.configs'.setup {
-    -- A list of parser names, or "all"
-    ensure_installed = "all",
-
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-
-    -- Automatically install missing parsers when entering buffer
-    auto_install = true,
-
-    -- List of parsers to ignore installing (for "all")
-    ignore_install = { "phpdoc" },
-
-    ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-    -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-    highlight = {
-      -- `false` will disable the whole extension
-      enable = true,
-
-      -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-      -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-      -- the name of the parser)
-      -- list of language that will be disabled
-      disable = {},
-
-      -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-      -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-      -- Using this option may slow down your editor, and you may see some duplicate highlights.
-      -- Instead of true it can also be a list of languages
-      additional_vim_regex_highlighting = false,
-    },
-
-    rainbow = {
-      enable = true,
-      extended_mode = true,
-    },
-
-    matchup = {
-      enable = true,
-    },
-  }
-end
-EOF
-
 
 """ devicons
 lua << EOF

@@ -235,4 +235,113 @@ return require("packer").startup(function (use)
       require("dap-python").setup('~/.pyenv/shims/python3')
     end
   }
+
+  -- sandwich
+  use 'machakann/vim-sandwich'
+
+  -- status line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('lualine').setup {
+        options = {
+          theme = 'material'
+        }
+      }
+    end
+  }
+
+  -- emmet
+  use {
+    'mattn/emmet-vim',
+    config = function()
+      vim.g.user_emmet_settings = {
+        typescript = {
+          extends = 'jsx'
+        }
+      }
+    end
+  }
+
+  -- treesitter
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        -- A list of parser names, or "all"
+        ensure_installed = "all",
+
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+
+        -- Automatically install missing parsers when entering buffer
+        auto_install = true,
+
+        -- List of parsers to ignore installing (for "all")
+        ignore_install = { "phpdoc" },
+
+        ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+        -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+        highlight = {
+          -- `false` will disable the whole extension
+          enable = true,
+
+          -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+          -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+          -- the name of the parser)
+          -- list of language that will be disabled
+          disable = {},
+
+          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+          -- Using this option may slow down your editor, and you may see some duplicate highlights.
+          -- Instead of true it can also be a list of languages
+          additional_vim_regex_highlighting = false,
+        },
+
+        rainbow = {
+          enable = true,
+          extended_mode = true,
+        },
+
+        matchup = {
+          enable = true,
+        },
+
+        indent = {
+          enable = true,
+        },
+
+        context_commentstring = {
+          enable = true,
+        },
+      }
+    end
+  }
+
+  -- browser
+  use {
+    'tyru/open-browser.vim',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<leader>o', '<Plug>(openbrowser-smart-search)', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('v', '<leader>o', '<Plug>(openbrowser-smart-search)', { silent = true, noremap = true })
+    end
+  }
 end)
