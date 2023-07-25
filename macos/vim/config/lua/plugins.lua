@@ -157,18 +157,16 @@ return require("packer").startup(function (use)
   -- denops.vim
   use 'vim-denops/denops.vim'
 
-  -- easymotion
+  -- hop
   use {
-    'easymotion/vim-easymotion',
+    'phaazon/hop.nvim',
+    branch = 'v2',
     config = function()
-      local keymap = vim.api.nvim_set_keymap
-
-      vim.g.EasyMotion_do_mapping = 0 -- disable default mappings
-      vim.g.EasyMotion_smartcase = 1
-      keymap("n", "<Leader>j", "<Plug>(easymotion-j)", { noremap = true })
-      keymap("n", "<Leader>k", "<Plug>(easymotion-k)", { noremap = true })
-
-      keymap("n", "/", "<Plug>(easymotion-sn)", { noremap = true })
+      local hop = require('hop')
+      hop.setup {
+        keys = 'etovxqpdygfblzhckisuran'
+      }
+      vim.keymap.set('', 'f', ':HopWord<CR>', { noremap = true })
     end
   }
 
