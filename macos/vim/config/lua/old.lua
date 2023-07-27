@@ -40,17 +40,6 @@ Plug 'rust-lang/rust.vim'
 " zig
 Plug 'ziglang/zig.vim'
 
-" JavaScript
-Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-
-" React
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'mlaursen/vim-react-snippets'
-
 " Svelte
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
@@ -62,10 +51,6 @@ Plug 'uarun/vim-protobuf'
 
 " Kotlin
 Plug 'udalov/kotlin-vim'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " nvim-notify
 Plug 'rcarriga/nvim-notify'
@@ -258,13 +243,6 @@ let g:vim_current_word#highlight_only_in_focusted_window = 1
 hi CurrentWord ctermbg=53
 hi CurrentWordTwins ctermbg=237
 
-
-""" JavaScript
-" Setup used libraries
-let g:used_javascript_libs = 'react,vue'
-let b:javascript_lib_use_react = 1
-let b:javascript_lib_use_vue = 1
-
 """ nvim-notify
 lua << EOF
 
@@ -436,13 +414,6 @@ EOF
 autocmd Filetype vue setlocal iskeyword+=-
 
 
-""" ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-
-let g:UltiSnipsEditSplit="vertical"
 let g:chat_gpt_key=""
 
 

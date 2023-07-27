@@ -1,0 +1,13 @@
+priority 10
+
+snippet fce "function component export" b
+import React from 'react'
+
+type $1Props = {
+	$3
+}
+
+export const ${1:`!v expand('%:t:r')`}: React.FC<$1Props> = (${2:props}) => {
+	return ${4:<></>}$0
+}
+endsnippet

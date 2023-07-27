@@ -342,4 +342,20 @@ return require("packer").startup(function (use)
       vim.api.nvim_set_keymap('v', '<leader>o', '<Plug>(openbrowser-smart-search)', { silent = true, noremap = true })
     end
   }
+
+  -- UltiSnips
+  use {
+    "SirVer/ultisnips",
+    config = function()
+      vim.g.UltiSnipsExpandTrigger = "<tab>"
+      vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
+      vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
+      vim.g.UltiSnipsEditSplit = "vertical"
+    end,
+  }
+  use 'honza/vim-snippets'
+  use {
+    'mlaursen/vim-react-snippets',
+    run = 'rm -rf UltiSnips/javascript*' -- javascript snippets conflicts with typescript ones
+  }
 end)
