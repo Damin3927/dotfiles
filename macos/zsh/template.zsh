@@ -58,8 +58,10 @@ arch="$(uname -m)"
 if [ "${arch}" = arm64 ]; then
   prepend_to_path "/opt/homebrew/bin"
 fi
+BREW_PREFIX="$(brew --prefix)"
 
 abs_path="$(get_abs_path $0)"
+source "${abs_path}/zsh/lazyenv.zsh"
 source "${abs_path}/zsh/generated_init.zsh"
 source "${abs_path}/zsh/zinit.zsh"
 source "${abs_path}/zsh/alias.zsh"

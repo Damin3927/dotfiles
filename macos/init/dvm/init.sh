@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export DVM_DIR="${HOME}/.dvm"
-export PATH="${DVM_DIR}/bin:$PATH"
+append_to_path "${DVM_DIR}/bin"

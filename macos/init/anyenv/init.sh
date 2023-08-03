@@ -1,3 +1,7 @@
 #!/bin/bash
 
-eval "$(anyenv init -)"
+_anyenv_init() {
+  eval "$(anyenv init -)"
+}
+
+eval "$(lazyenv.load _anyenv_init anyenv)"
