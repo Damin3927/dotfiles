@@ -13,6 +13,7 @@ jq
 llvm
 lua
 mysql
+ncdu
 neofetch
 neovim
 netcat

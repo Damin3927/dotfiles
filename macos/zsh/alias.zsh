@@ -54,3 +54,6 @@ alias xcode='open -a Xcode'
 
 # terraform
 alias tf='terraform'
+
+# du
+alias du='ncdu'
