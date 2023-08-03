@@ -34,19 +34,22 @@ prepend_to_path() {
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle :compinstall filename '/Users/damin/.zshrc'
+zstyle :compinstall filename "${HOME}/.zshrc"
 
 autoload -Uz compinit
-compinit
+# https://gist.github.com/ctechols/ca1035271ad134841284
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+  touch ~/.zcompdump
+else
+	compinit -C;
+fi;
 # End of lines added by compinstall
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ### PATH
-# zls
-append_to_path "${HOME}/.zls"
-
 # JetBrains Toolbox
 append_to_path "${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
 
