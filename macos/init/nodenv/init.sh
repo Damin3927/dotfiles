@@ -1,6 +1,7 @@
 #!/bin/bash
 
 _nodenv_init() {
+  eval "$(anyenv init -)"
   eval "$(nodenv init -)"
 }
 
