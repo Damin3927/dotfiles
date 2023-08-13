@@ -358,4 +358,38 @@ return require("packer").startup(function (use)
     'mlaursen/vim-react-snippets',
     run = 'rm -rf UltiSnips/javascript*' -- javascript snippets conflicts with typescript ones
   }
+
+  -- markdown
+  use 'dhruvasagar/vim-table-mode'
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && yarn install',
+  }
+
+  -- buffergator
+  use {
+    'jeetsukumaran/vim-buffergator',
+    config = function()
+      vim.g.buffergator_suppress_keymaps = 1
+    end
+  }
+
+  -- cursor words
+  use {
+    'yamatsum/nvim-cursorline',
+    config = function()
+      require('nvim-cursorline').setup {
+        cursorline = {
+          enable = true,
+          timeout = 3000,
+          number = true,
+        },
+        cursorword = {
+          enable = true,
+          min_length = 3,
+          hl = { underline = true },
+        }
+      }
+    end
+  }
 end)

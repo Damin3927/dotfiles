@@ -15,19 +15,6 @@ Plug 'stsewd/fzf-checkout.vim'
 " far.vim
 Plug 'brooth/far.vim'
 
-" markdown
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-
-" buffergator
-Plug 'jeetsukumaran/vim-buffergator'
-
-" endwise
-Plug 'tpope/vim-endwise'
-
-" current_word
-Plug 'dominikduda/vim_current_word'
-
 " enable :GBrowse
 Plug 'tpope/vim-rhubarb'
 
@@ -238,11 +225,6 @@ nnoremap <silent> [far-replace]  :Farr<cr>
 vnoremap <silent> [far-replace]  :Farr<cr>
 
 
-""" current_word
-let g:vim_current_word#highlight_only_in_focusted_window = 1
-hi CurrentWord ctermbg=53
-hi CurrentWordTwins ctermbg=237
-
 """ nvim-notify
 lua << EOF
 
@@ -374,10 +356,6 @@ lua require('crates').setup()
 
 """ dashboard
 lua require'alpha'.setup(require'alpha.themes.theta'.config)
-
-
-""" buffergator
-let g:buffergator_suppress_keymaps=1
 
 
 """ test runner
