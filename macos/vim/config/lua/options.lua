@@ -44,6 +44,9 @@ local options = {
 
   -- CursorHold
   updatetime = 200,
+
+  -- Color
+  termguicolors = true,
 }
 
 vim.opt.shortmess:append("c")

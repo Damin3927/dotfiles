@@ -392,4 +392,156 @@ return require("packer").startup(function (use)
       }
     end
   }
+
+  -- fugitive
+  use {
+    'tpope/vim-fugitive',
+    requires = {
+      'tpope/vim-rhubarb',
+    },
+    config = function()
+      vim.api.nvim_set_keymap('n', '[fugitive]', '<Nop>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '<Leader>i', '[fugitive]', { noremap = false })
+      vim.api.nvim_set_keymap('n', '[fugitive]s', ':G<CR><C-w>T', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]a', ':Gwrite<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]w', ':w<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]c', ':G commit<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]d', ':Gdiff<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]h', ':G diff --cached<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]m', ':G blame<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]p', ':G push<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]l', ':G pull<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]b', ':Telescope git_branches<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[fugitive]g', 'V:GBrowse<CR>', { silent = true, noremap = true })
+    end
+  }
+
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require("telescope").setup{
+        pickers = {
+          live_grep = {
+            additional_args = function(opts)
+              return {
+                "--hidden",
+                "--glob",
+                "!**/.git/*",
+              }
+            end
+          },
+        },
+      }
+
+      vim.api.nvim_set_keymap('n', '[telescope]', '<Nop>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '<Leader>f', '[telescope]', { noremap = false })
+      vim.api.nvim_set_keymap('n', '[telescope]f', ':Telescope find_files<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]r', ':Telescope live_grep<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]b', ':Telescope buffers<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]h', ':Telescope oldfiles<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]g', ':Telescope git_files<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]c', ':Telescope git_commits<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]s', ':Telescope git_status<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]l', ':Telescope git_bcommits<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]t', ':Telescope treesitter<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]w', ':Telescope grep_string<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '[telescope]s', ':Telescope<CR>', { silent = true, noremap = true })
+    end
+  }
+
+  -- trailing whitespace
+  use 'bronson/vim-trailing-whitespace'
+
+  -- Rust
+  use 'rust-lang/rust.vim'
+  use {
+    'saecki/crates.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('crates').setup()
+    end,
+  }
+
+  -- Go
+  use {
+    'fatih/vim-go',
+    run = ':GoUpdateBinaries'
+  }
+
+  -- protobuf
+  use 'uarun/vim-protobuf'
+
+  -- nvim-notify
+  use {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
+
+      -- ref: https://github.com/rcarriga/nvim-notify/wiki/Usage-Recipes#cocnvim-integration---status-and-diagnostics
+      local coc_diag_record = {}
+
+      function coc_diag_notify(msg, level)
+        local notify_opts = { title = "LSP Diagnostics", timeout = 500, on_close = reset_coc_diag_record }
+        -- if coc_diag_record is not {} then add it to notify_opts to key called "replace"
+        if coc_diag_record ~= {} then
+          notify_opts["replace"] = coc_diag_record.id
+        end
+        coc_diag_record = vim.notify(msg, level, notify_opts)
+      end
+
+      function reset_coc_diag_record(window)
+        coc_diag_record = {}
+      end
+
+      function coc_notify(msg, level)
+        local notify_opts = { title = "LSP Message", timeout = 500 }
+        vim.notify(msg, level, notify_opts)
+      end
+      vim.cmd([[
+        function! s:DiagnosticNotify() abort
+          let l:info = get(b:, 'coc_diagnostic_info', {})
+          if empty(l:info) | return '' | endif
+          let l:msgs = []
+          let l:level = 'info'
+           if get(l:info, 'warning', 0)
+            let l:level = 'warn'
+          endif
+          if get(l:info, 'error', 0)
+            let l:level = 'error'
+          endif
+
+          if get(l:info, 'error', 0)
+            call add(l:msgs, ' Errors: ' . l:info['error'])
+          endif
+          if get(l:info, 'warning', 0)
+            call add(l:msgs, ' Warnings: ' . l:info['warning'])
+          endif
+          if get(l:info, 'information', 0)
+            call add(l:msgs, ' Infos: ' . l:info['information'])
+          endif
+          if get(l:info, 'hint', 0)
+            call add(l:msgs, ' Hints: ' . l:info['hint'])
+          endif
+          let l:msg = join(l:msgs, "\n")
+          if empty(l:msg) | let l:msg = ' All OK' | endif
+          call v:lua.coc_diag_notify(l:msg, l:level)
+        endfunction
+
+        function! s:InitCoc() abort
+          runtime! autoload/coc/ui.vim
+          execute "lua vim.notify('Initialized coc.nvim for LSP support', 'info', { title = 'LSP Statuses' })"
+        endfunction
+
+        autocmd User CocNvimInit call s:InitCoc()
+        autocmd User CocDiagnosticChange call s:DiagnosticNotify()
+      ]])
+    end
+  }
 end)
