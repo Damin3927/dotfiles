@@ -25,7 +25,12 @@ return require("packer").startup(function (use)
   use 'wbthomason/packer.nvim'
 
   -- color scheme
-  use 'tomasr/molokai'
+  use {
+    'folke/tokyonight.nvim',
+    config = function()
+      vim.cmd[[colorscheme tokyonight]]
+    end
+  }
 
   -- fern
   use 'lambdalisue/nerdfont.vim'
@@ -246,7 +251,7 @@ return require("packer").startup(function (use)
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'material'
+          theme = 'tokyonight'
         }
       }
     end
@@ -275,6 +280,7 @@ return require("packer").startup(function (use)
     'nvim-treesitter/nvim-treesitter',
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring',
+      'andymass/vim-matchup',
     },
     run = function()
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
@@ -328,6 +334,10 @@ return require("packer").startup(function (use)
         },
 
         context_commentstring = {
+          enable = true,
+        },
+
+        matchup = {
           enable = true,
         },
       }
@@ -542,6 +552,101 @@ return require("packer").startup(function (use)
         autocmd User CocNvimInit call s:InitCoc()
         autocmd User CocDiagnosticChange call s:DiagnosticNotify()
       ]])
+    end
+  }
+
+  -- bufferline
+  use {
+    'akinsho/bufferline.nvim',
+    config = function()
+      require("bufferline").setup{
+        options = {
+          offsets = {
+            {
+              filetype = "fern",
+              text = "File Explorer",
+              text_align = "left",
+              separator = true,
+            }
+          },
+          separator_style = "slant",
+        }
+      }
+    end
+  }
+
+  -- scrollbar
+  use {
+    'petertriho/nvim-scrollbar',
+    config = function()
+      require("scrollbar").setup()
+    end
+  }
+
+  -- gitsigns
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'petertriho/nvim-scrollbar'
+    },
+    config = function()
+      require('gitsigns').setup {
+        word_diff = true,
+        current_line_blame = true,
+      }
+      require("scrollbar.handlers.gitsigns").setup()
+    end
+  }
+
+  -- transparent
+  use 'xiyaowong/nvim-transparent'
+
+  -- color code colorizer
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end
+  }
+
+  -- dashboard
+  use {
+    'goolord/alpha-nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
+  }
+
+  -- devicons
+  use {
+    'nvim-tree/nvim-web-devicons',
+    config = function()
+      require'nvim-web-devicons'.setup {
+        default = true;
+      }
+    end
+  }
+
+  -- bclose
+  use 'rbgrouleff/bclose.vim'
+
+  -- uuid
+  use 'kburdett/vim-nuuid'
+
+  -- terraform
+  use 'hashivim/vim-terraform'
+
+  -- Quickrun
+  use 'thinca/vim-quickrun'
+
+  -- Astro
+  use {
+    'wuelnerdotexe/vim-astro',
+    config = function()
+      vim.g.astro_typescript = 'enable'
     end
   }
 end)

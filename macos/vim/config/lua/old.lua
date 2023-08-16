@@ -7,57 +7,8 @@ call plug#begin()
 " libraries
 Plug 'nvim-lua/plenary.nvim'
 
-" bufferline
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
-
-" scrollbar
-Plug 'petertriho/nvim-scrollbar'
-
-" color scheme
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
-" transparent
-Plug 'xiyaowong/nvim-transparent'
-
-" color code colorizer
-Plug 'norcalli/nvim-colorizer.lua'
-
-" % extension
-Plug 'andymass/vim-matchup'
-
-" dasbboard
-Plug 'goolord/alpha-nvim'
-
-" bclose
-Plug 'rbgrouleff/bclose.vim'
-
 " test runner
 Plug 'vim-test/vim-test'
-
-" racket
-Plug 'wlangstroth/vim-racket'
-
-" uuid
-Plug 'kburdett/vim-nuuid'
-
-" asm support
-Plug 'shirk/vim-gas'
-
-" terraform
-Plug 'hashivim/vim-terraform'
-
-" Swift
-Plug 'keith/swift.vim'
-
-" mdx
-Plug 'jxnblk/vim-mdx-js'
-
-" Quickrun
-Plug 'thinca/vim-quickrun'
-
-" Astro
-Plug 'wuelnerdotexe/vim-astro'
-
 
 call plug#end()
 
@@ -141,56 +92,6 @@ tnoremap <C-[> <C-\><C-n>
 autocmd TermOpen * startinsert
 
 
-""" devicons
-lua << EOF
-require'nvim-web-devicons'.setup {
- -- your personal icons can go here (to override)
- -- you can specify color or cterm_color instead of specifying both of them
- -- DevIcon will be appended to `name`
- override = {};
- -- globally enable default icons (default to false)
- -- will get overridden by `get_icons` option
- default = true;
-}
-EOF
-
-
-""" bufferline
-set termguicolors
-lua << EOF
-require("bufferline").setup{
-  options = {
-    offsets = {
-      {
-        filetype = "fern",
-        text = "File Explorer",
-        text_align = "left",
-        separator = true,
-      }
-    },
-    separator_style = "slant",
-  }
-}
-EOF
-
-
-""" scrollbar
-lua require("scrollbar").setup()
-
-
-""" color scheme
-" Color scheme
-colorscheme tokyonight-night
-
-
-""" color code colorizer
-lua require'colorizer'.setup()
-
-
-""" dashboard
-lua require'alpha'.setup(require'alpha.themes.theta'.config)
-
-
 """ test runner
 " nnoremap <silent> <leader>t :<C-u>TestNearest<CR>
 nnoremap <silent> <leader>T :<C-u>TestFile<CR>
@@ -209,8 +110,4 @@ autocmd Filetype vue setlocal iskeyword+=-
 
 
 let g:chat_gpt_key=""
-
-
-""" Astro
-let g:astro_typescript = 'enable'
 ]])
