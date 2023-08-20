@@ -33,8 +33,24 @@ return require("packer").startup(function (use)
   }
 
   -- fern
-  use 'lambdalisue/nerdfont.vim'
-  use 'lambdalisue/fern.vim'
+  use {
+    'lambdalisue/fern.vim',
+    config = function()
+      -- show hidden files
+      vim.g['fern#default_hidden'] = 1
+
+      vim.api.nvim_set_keymap('n', '<C-n>', ':Fern . -drawer -reveal=%<CR>', { silent = true, noremap = true })
+    end
+  }
+  use {
+    'lambdalisue/nerdfont.vim',
+    requires = {
+      'lambdalisue/fern.vim',
+    },
+    config = function()
+      vim.g['fern#renderer'] = 'nerdfont'
+    end
+  }
   use 'lambdalisue/fern-git-status.vim'
   use 'lambdalisue/fern-renderer-nerdfont.vim'
   use 'lambdalisue/fern-hijack.vim'
@@ -647,6 +663,17 @@ return require("packer").startup(function (use)
     'wuelnerdotexe/vim-astro',
     config = function()
       vim.g.astro_typescript = 'enable'
+    end
+  }
+
+  -- test runner
+  use {
+    'vim-test/vim-test',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<Leader>t', ':TestNearest<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '<Leader>T', ':TestFile<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '<Leader>l', ':TestLast<CR>', { silent = true, noremap = true })
+      vim.api.nvim_set_keymap('n', '<Leader>a', ':TestSuite<CR>', { silent = true, noremap = true })
     end
   }
 end)
