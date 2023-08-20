@@ -200,18 +200,6 @@ return require("packer").startup(function (use)
   -- ChatGPT
   use 'CoderCookE/vim-chatgpt'
 
-  use({
-    "jackMort/ChatGPT.nvim",
-      config = function()
-        require("chatgpt").setup()
-      end,
-      requires = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim"
-      }
-  })
-
   -- mini.nvim
   use({
     "echasnovski/mini.nvim",
