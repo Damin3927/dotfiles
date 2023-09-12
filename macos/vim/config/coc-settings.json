@@ -16,14 +16,6 @@
     "swift": {
       "command": "sourcekit-lsp",
       "filetypes": ["swift"]
-    },
-    "graphql": {
-      "command": "graphql-lsp",
-      "args": ["server", "-m", "stream"],
-      "filetypes": ["typescript", "typescriptreact", "graphql"],
-      "settings": {
-        "graphql-config.load.legacy": true
-      }
     }
   },
   "diagnostic-languageserver.filetypes": {
