@@ -388,25 +388,6 @@ return require("packer").startup(function (use)
     end
   }
 
-  -- cursor words
-  use {
-    'yamatsum/nvim-cursorline',
-    config = function()
-      require('nvim-cursorline').setup {
-        cursorline = {
-          enable = true,
-          timeout = 3000,
-          number = true,
-        },
-        cursorword = {
-          enable = true,
-          min_length = 3,
-          hl = { underline = true },
-        }
-      }
-    end
-  }
-
   -- fugitive
   use {
     'tpope/vim-fugitive',
