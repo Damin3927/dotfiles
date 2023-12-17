@@ -337,10 +337,6 @@ return require("packer").startup(function (use)
           enable = true,
         },
 
-        context_commentstring = {
-          enable = true,
-        },
-
         matchup = {
           enable = true,
         },
