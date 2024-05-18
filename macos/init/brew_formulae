@@ -22,6 +22,7 @@ raycast
 redis
 ripgrep
 shellcheck
+sox
 sqlite
 webp
 wget
