@@ -8,7 +8,7 @@ gnupg
 google-chrome
 hashicorp/tap/terraform-ls
 heroku/brew/heroku
-homebrew/cask-fonts/font-ubuntu-mono-nerd-font
+homebrew/cask/font-ubuntu-mono-nerd-font
 jq
 llvm
 lua
