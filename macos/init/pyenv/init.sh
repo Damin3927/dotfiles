@@ -13,5 +13,5 @@ if [[ "${POETRY_ACTIVE}" == "1" ]]; then
   _pyenv_init
   unset -f _pyenv_init
 else
-  eval "$(lazyenv.load _pyenv_init pyenv python python3 pip poetry)"
+  eval "$(lazyenv.load _pyenv_init pyenv python python3 pip pip3 poetry)"
 fi
