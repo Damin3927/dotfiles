@@ -67,6 +67,7 @@ return require("packer").startup(function (use)
         '@yaegassy/coc-tailwindcss3',
         '@yaegassy/coc-volar',
         '@yaegassy/coc-volar-tools',
+        'coc-biome',
         'coc-clangd',
         'coc-css',
         'coc-css',
