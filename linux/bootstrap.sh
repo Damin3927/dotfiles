@@ -23,6 +23,7 @@ function append_init_script_to_zshrc() {
   abs_path=$(get_abs_path "zsh/template.zsh")
   source_template_str="source ${abs_path}"
 
+  touch "${HOME}/.zshrc"
   if ! grep -q "$source_template_str" "${HOME}/.zshrc"; then
     printf "%s\n\n# load zshrc template\n%s\n" "$(cat "${HOME}"/.zshrc)" "${source_template_str}" > "${HOME}/.zshrc"
   fi
