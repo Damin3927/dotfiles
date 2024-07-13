@@ -10,7 +10,7 @@ function get_abs_path() {
 
 function append_init_script_to_zshrc() {
   local abs_path source_template_str
-  abs_path=$(get_abs_path "zsh/template.zsh")
+  abs_path=$(get_abs_path "../common/zsh/template.zsh")
   source_template_str="source ${abs_path}"
 
   if ! grep -q "$source_template_str" "${HOME}/.zshrc"; then
@@ -21,4 +21,4 @@ function append_init_script_to_zshrc() {
 append_init_script_to_zshrc
 
 # NeoVim setup
-. vim/bootstrap.sh
+. ../common/vim/bootstrap.sh

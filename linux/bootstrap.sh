@@ -32,4 +32,4 @@ append_init_script_to_zshrc
 
 
 # neovim setup
-. vim/bootstrap.sh
+. ../common/vim/bootstrap.sh

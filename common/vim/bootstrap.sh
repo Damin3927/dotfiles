@@ -7,14 +7,12 @@ function get_abs_path() {
 
 # pip install
 function pi() {
-  pip3 show "$1" > /dev/null || pip3 install "$1"
+  pip3 show "$1" > /dev/null || pip3 install "$1" --break-system-packages
 }
 
 config_path=${HOME}/.config/nvim
-if [ ! -e "$config_path" ]; then
-	ln -s "$(get_abs_path "config")" "${config_path}"
-  echo "Symlinked .config/nvim"
-fi
+ln -fs "$(get_abs_path "../common/vim/config")" "${config_path}"
+echo "Symlinked .config/nvim"
 
 # install pynvim, openai into python
 pi pynvim
