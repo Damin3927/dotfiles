@@ -40,6 +40,7 @@ fn install_other_pkgs() -> Result<()> {
         .into_iter()
         .filter_map(|e| e.ok())
         .filter(|e| e.file_type().is_dir())
+        .filter(|e| e.file_name() != "init")
     {
         let dir_name = entry.file_name().to_str().unwrap();
         if is_installed(init_dir, dir_name) {
