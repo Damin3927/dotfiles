@@ -75,6 +75,7 @@ return require("packer").startup(function (use)
         'coc-diagnostic',
         'coc-docker',
         'coc-eslint',
+        'coc-flutter',
         'coc-go',
         'coc-groovy',
         'coc-html',
