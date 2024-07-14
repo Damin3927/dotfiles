@@ -33,6 +33,7 @@ pub fn run() -> Result<()> {
         vec!["# This script is generated automatically. DO NOT EDIT.".to_owned()];
 
     for entry in WalkDir::new(init_dir)
+        .sort_by_file_name()
         .into_iter()
         .filter_map(|e| e.ok())
         .filter(|e| e.file_type().is_dir())
