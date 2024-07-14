@@ -37,6 +37,7 @@ fn install_other_pkgs() -> Result<()> {
     let init_dir = "init";
 
     for entry in WalkDir::new(init_dir)
+        .sort_by_file_name()
         .into_iter()
         .filter_map(|e| e.ok())
         .filter(|e| e.file_type().is_dir())
