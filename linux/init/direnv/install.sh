@@ -1,3 +1,3 @@
 #!/bin/bash
 
-apt install -y direnv
+sudo apt install -y direnv
