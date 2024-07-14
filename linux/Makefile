@@ -1,13 +1,23 @@
 .DEFAULT_GOAL := init
 
 
+.PHONY: build_cli
+build_cli: ## Build CLI
+	cargo build --release
+
+.PHONY: build_init
+build_init: build_cli ## Build initialization files
+	./target/release/dotfiles build-init
+
+
 .PHONY: bootstrap
-bootstrap: ## Bootstrap shell environments
+bootstrap: build_cli ## Bootstrap shell environments
+	./target/release/dotfiles install-pkgs
 	./bootstrap.sh
 
 
 .PHONY: init
-init: bootstrap ## Initialize environments
+init: build_init bootstrap ## Initialize environments
 
 
 .PHONY: help
