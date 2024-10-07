@@ -199,9 +199,6 @@ return require("packer").startup(function (use)
   -- GitHub Copilot
   use 'github/copilot.vim'
 
-  -- ChatGPT
-  use 'CoderCookE/vim-chatgpt'
-
   -- Gp.nvim
   use {
     'robitx/gp.nvim',
