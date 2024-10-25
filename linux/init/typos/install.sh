@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cargo install typo-cli --locked
+cargo install typos-cli --locked
