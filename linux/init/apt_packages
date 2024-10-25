@@ -1,1 +1,6 @@
 bat
+terraform-ls
+jq
+neovim
+ripgrep
+shellcheck
