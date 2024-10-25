@@ -9,7 +9,7 @@ use crate::error::{Error, Result};
 
 pub fn is_installed(init_dir: &str, executable: &str) -> bool {
     // Check if the command exists
-    if run_command_silently("command", &["-v", executable]).is_ok() {
+    if run_command_silently("zsh", &["-c", &format!("command -v {}", executable)]).is_ok() {
         return true;
     }
 
