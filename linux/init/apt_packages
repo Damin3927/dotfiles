@@ -3,3 +3,4 @@ jq
 neovim
 ripgrep
 shellcheck
+trash-cli
