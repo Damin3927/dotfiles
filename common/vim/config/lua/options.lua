@@ -36,7 +36,7 @@ local options = {
   showmatch = true,
 
   -- Yank
-  clipboard = "unnamed",
+  clipboard = "unnamedplus",
 
   -- popup
   pumblend = 30,
