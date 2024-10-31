@@ -16,6 +16,11 @@
     "swift": {
       "command": "sourcekit-lsp",
       "filetypes": ["swift"]
+    },
+    "arduino": {
+      "command": "arduino-language-server",
+      "rootPatterns": ["*.ino"],
+      "filetypes": ["arduino"]
     }
   },
   "diagnostic-languageserver.filetypes": {
