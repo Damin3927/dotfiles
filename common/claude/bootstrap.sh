@@ -8,3 +8,5 @@ function get_abs_path() {
 mkdir -p "${HOME}/.claude"
 ln -fs "$(get_abs_path "../common/claude/settings.json")" "${HOME}/.claude/settings.json"
 echo "Symlinked .claude/settings.json"
+ln -fs "$(get_abs_path "../common/claude/CLAUDE.md")" "${HOME}/.claude/CLAUDE.md"
+echo "Symlinked .claude/CLAUDE.md"
