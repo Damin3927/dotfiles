@@ -34,3 +34,6 @@ append_init_script_to_zshrc
 
 # neovim setup
 . ../common/vim/bootstrap.sh
+
+# Claude Code setup
+. ../common/claude/bootstrap.sh
