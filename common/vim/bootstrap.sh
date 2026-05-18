@@ -11,7 +11,10 @@ function pi() {
 }
 
 config_path=${HOME}/.config/nvim
-ln -fs "$(get_abs_path "../common/vim/config")" "${config_path}"
+# -n: don't dereference the target if it's already a symlink to a dir.
+# Without it, re-running this script creates a nested symlink inside the
+# existing target dir instead of replacing the symlink in place.
+ln -fns "$(get_abs_path "../common/vim/config")" "${config_path}"
 echo "Symlinked .config/nvim"
 
 # install pynvim, openai into python
