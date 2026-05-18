@@ -3,9 +3,7 @@ ca-certificates
 cmake
 gcc
 gh
-github
 gnupg
-google-chrome
 hashicorp/tap/terraform-ls
 heroku/brew/heroku
 homebrew/cask/font-ubuntu-mono-nerd-font
@@ -26,5 +24,3 @@ sqlite
 webp
 wget
 xz
-zig
-zls
