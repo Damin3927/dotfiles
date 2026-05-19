@@ -8,5 +8,27 @@
   "skipAutoPermissionPrompt": true,
   "commands": {
     "mcp": true
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/notify.sh Stop"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/notify.sh Notification"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -1,12 +1,20 @@
 #!/bin/bash
+# Symlink Claude Code config into ~/.claude.
+# Works whether sourced from a parent bootstrap script or executed directly
+# (e.g. `make claude`), because paths are resolved relative to this file
+# via BASH_SOURCE rather than $0.
 
-function get_abs_path() {
-  dir_name=$(cd "$(dirname "$(dirname "$0")/$1")" && pwd)
-  echo "${dir_name}/$(basename "$1")"
-}
+set -eu
 
-mkdir -p "${HOME}/.claude"
-ln -fs "$(get_abs_path "../common/claude/settings.json")" "${HOME}/.claude/settings.json"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+mkdir -p "${HOME}/.claude/hooks"
+
+ln -fs "${SCRIPT_DIR}/settings.json" "${HOME}/.claude/settings.json"
 echo "Symlinked .claude/settings.json"
-ln -fs "$(get_abs_path "../common/claude/CLAUDE.md")" "${HOME}/.claude/CLAUDE.md"
+
+ln -fs "${SCRIPT_DIR}/CLAUDE.md" "${HOME}/.claude/CLAUDE.md"
 echo "Symlinked .claude/CLAUDE.md"
+
+ln -fs "${SCRIPT_DIR}/hooks/notify.sh" "${HOME}/.claude/hooks/notify.sh"
+echo "Symlinked .claude/hooks/notify.sh"
