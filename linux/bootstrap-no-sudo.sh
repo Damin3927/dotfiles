@@ -6,11 +6,23 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 append_init_script_to_zshrc() {
   local abs_path source_template_str
-  abs_path="${SCRIPT_DIR}/zsh/template.zsh"
+  # `common/zsh/template.zsh` is the entry point; it defines `append_to_path` /
+  # `get_abs_path` and then sources the OS-specific `linux/zsh/template.zsh`.
+  # Sourcing `linux/zsh/template.zsh` directly fails because those helpers are
+  # not yet defined at that point.
+  abs_path="$(cd "${SCRIPT_DIR}/../common/zsh" && pwd)/template.zsh"
   source_template_str="source ${abs_path}"
 
   touch "${HOME}/.zshrc"
-  if ! grep -q "$source_template_str" "${HOME}/.zshrc"; then
+
+  # Remove any previously-written line that pointed at the wrong template
+  # (linux/zsh/template.zsh) so re-running this script self-heals old installs.
+  if grep -q 'source .*/linux/zsh/template\.zsh' "${HOME}/.zshrc"; then
+    grep -v 'source .*/linux/zsh/template\.zsh' "${HOME}/.zshrc" > "${HOME}/.zshrc.tmp"
+    mv "${HOME}/.zshrc.tmp" "${HOME}/.zshrc"
+  fi
+
+  if ! grep -qF "$source_template_str" "${HOME}/.zshrc"; then
     printf "%s\n\n# load zshrc template\n%s\n" "$(cat "${HOME}/.zshrc")" "${source_template_str}" > "${HOME}/.zshrc"
   fi
 }
