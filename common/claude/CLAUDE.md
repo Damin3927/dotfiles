@@ -23,3 +23,13 @@ These preferences apply across all my projects. A project-local `CLAUDE.md` / `A
 ## Verification
 
 - "Done" means verified. Run the project's typecheck / lint / tests when the change is non-trivial. If a check was skipped (no command, env not set up, sandbox limits), say so explicitly.
+
+## Knowledge organization
+
+Where to store things I should remember or that should persist across sessions:
+
+- **Cross-machine / cross-project rules and conventions** → this file (`CLAUDE.md`). Synced via dotfiles, so the same content applies on every machine.
+- **Project-specific knowledge** (this project's quirks, in-flight work, local context) → that project's `~/.claude/projects/<slug>/memory/`. **Local-only, not synced** across machines on purpose.
+- **Personal info / env vars / machine-or-account-specific IDs** (e.g. `WISTERIA_GROUP`, ssh hosts, account names) → the sibling private repo `dotfiles-priv` at `../dotfiles-priv`. Sourced automatically by `common/zsh/template.zsh` when present.
+
+When the user says "remember X", pick the right home from the list above. If unsure, ask which scope.

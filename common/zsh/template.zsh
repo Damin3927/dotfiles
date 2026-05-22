@@ -65,3 +65,15 @@ fi
 
 # set editor
 export EDITOR='nvim'
+
+# Load sibling private dotfiles (`../dotfiles-priv`) if present.
+# Loaded last so it can override anything set above.
+priv_root="${abs_path}/../../dotfiles-priv"
+if [ -d "$priv_root" ]; then
+  [ -f "${priv_root}/common/zsh/main.zsh" ] && source "${priv_root}/common/zsh/main.zsh"
+  if [ "$(uname)" = "Darwin" ]; then
+    [ -f "${priv_root}/macos/zsh/main.zsh" ] && source "${priv_root}/macos/zsh/main.zsh"
+  elif [ "$(uname)" = "Linux" ]; then
+    [ -f "${priv_root}/linux/zsh/main.zsh" ] && source "${priv_root}/linux/zsh/main.zsh"
+  fi
+fi
