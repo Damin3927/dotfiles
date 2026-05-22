@@ -19,9 +19,9 @@ bootstrap: build_cli ## Bootstrap shell environments
 .PHONY: init
 init: build_init bootstrap ## Initialize environments
 
-.PHONY: claude
-claude: ## Set up Claude Code only (settings.json, CLAUDE.md, hooks)
-	bash ../common/claude/bootstrap.sh
+.PHONY: no_sudo
+no_sudo: ## Partial install for sudo-less environments
+	bash ./bootstrap-no-sudo.sh
 
 
 .PHONY: help
