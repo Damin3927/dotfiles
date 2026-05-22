@@ -9,6 +9,25 @@
   "commands": {
     "mcp": true
   },
+  "extraKnownMarketplaces": {
+    "matsuolab-skills": {
+      "source": {
+        "source": "github",
+        "repo": "matsuolab/skills"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "matsuolab-skills@matsuolab-skills": true,
+    "frontend-design@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
   "hooks": {
     "Stop": [
       {
