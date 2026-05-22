@@ -35,9 +35,11 @@ alias venv='source .venv/bin/activate'
 # poetry
 alias posh='poetry shell'
 
-# NeoVim
-alias vi='nvim'
-alias vim='nvim'
+# NeoVim — only alias if nvim is installed (e.g. on no_sudo setups it may not be)
+if command -v nvim >/dev/null 2>&1; then
+  alias vi='nvim'
+  alias vim='nvim'
+fi
 
 # IP Address
 alias myip='curl http://ipecho.net/plain'
