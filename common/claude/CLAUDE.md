@@ -13,6 +13,12 @@ These preferences apply across all my projects. A project-local `CLAUDE.md` / `A
 - Validate untrusted input at boundaries with a schema library (`zod` or whatever the project uses), not ad-hoc runtime guards.
 - Prefer static `import` at the top of the file over `await import(...)`. Use dynamic imports only with a concrete reason (code splitting, optional dependency).
 
+## Comments
+
+- Keep comments to a minimum. Most code is self-descriptive — a comment that restates what the code already says is noise and just bloats the line count. Don't write those.
+- Comment only what the code can't tell you on its own: the non-obvious *why* (intent, tradeoffs, workarounds, context links), surprising constraints, or genuinely tricky logic that isn't clear from reading.
+- Reach for a clearer name or simpler structure before reaching for a comment.
+
 ## Approach
 
 - If the right approach for a non-trivial change isn't clear, surface options and tradeoffs before implementing — don't guess and rewrite later.
