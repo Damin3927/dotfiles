@@ -9,6 +9,11 @@ These preferences apply across all my projects. A project-local `CLAUDE.md` / `A
 - Use plain, natural wording in both Japanese and English, especially in documents and status reports. Don't invent terms or coin new words — use the ordinary word that already exists for the thing.
 - Match written deliverables (reports, design docs, summaries) to what the task needs — no filler sections, redundant summaries, or boilerplate.
 
+## Type safety
+
+- Prefer type-safe approaches in every language. Don't silence the type checker to make an error go away — find the real fix. If a suppression is genuinely unavoidable, narrow it to the specific error and leave a comment saying why.
+- Validate untrusted input at the boundary with a schema library, not ad-hoc runtime checks.
+
 ## Comments
 
 - Keep comments to a minimum. Most code is self-descriptive — a comment that restates what the code already says is noise and just bloats the line count. Don't write those.
