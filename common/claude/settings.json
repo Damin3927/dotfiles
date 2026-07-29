@@ -46,9 +46,12 @@
       }
     }
   },
+  "effortLevel": "xhigh",
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "commands": {
     "mcp": true
-  },
-  "effortLevel": "xhigh"
+  }
 }

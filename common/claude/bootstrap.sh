@@ -8,7 +8,7 @@ set -eu
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-mkdir -p "${HOME}/.claude/hooks"
+mkdir -p "${HOME}/.claude/hooks" "${HOME}/.claude/rules"
 
 ln -fs "${SCRIPT_DIR}/settings.json" "${HOME}/.claude/settings.json"
 echo "Symlinked .claude/settings.json"
@@ -18,3 +18,8 @@ echo "Symlinked .claude/CLAUDE.md"
 
 ln -fs "${SCRIPT_DIR}/hooks/notify.sh" "${HOME}/.claude/hooks/notify.sh"
 echo "Symlinked .claude/hooks/notify.sh"
+
+for rule in "${SCRIPT_DIR}"/rules/*.md; do
+  ln -fs "${rule}" "${HOME}/.claude/rules/$(basename "${rule}")"
+  echo "Symlinked .claude/rules/$(basename "${rule}")"
+done

@@ -6,12 +6,13 @@ These preferences apply across all my projects. A project-local `CLAUDE.md` / `A
 
 - 日本語で話しかけたら日本語で返答してOK。
 - Code, comments, commit messages, PR descriptions, issue text: **English only, never Japanese.**
+- Use plain, natural wording in both Japanese and English, especially in documents and status reports. Don't invent terms or coin new words — use the ordinary word that already exists for the thing.
+- Match written deliverables (reports, design docs, summaries) to what the task needs — no filler sections, redundant summaries, or boilerplate.
 
 ## Type safety
 
-- Prefer type-safe approaches. Avoid `any` and `as` casting — find the real fix instead of silencing the type checker.
-- Validate untrusted input at boundaries with a schema library (`zod` or whatever the project uses), not ad-hoc runtime guards.
-- Prefer static `import` at the top of the file over `await import(...)`. Use dynamic imports only with a concrete reason (code splitting, optional dependency).
+- Prefer type-safe approaches in every language. Don't silence the type checker to make an error go away — find the real fix. If a suppression is genuinely unavoidable, narrow it to the specific error and leave a comment saying why.
+- Validate untrusted input at the boundary with a schema library, not ad-hoc runtime checks.
 
 ## Comments
 
@@ -22,20 +23,14 @@ These preferences apply across all my projects. A project-local `CLAUDE.md` / `A
 ## Approach
 
 - If the right approach for a non-trivial change isn't clear, surface options and tradeoffs before implementing — don't guess and rewrite later.
-- Before changing code that touches an interface, read its exports, callers, and shared utilities. "Looks orthogonal" is dangerous.
-- Match the codebase's existing conventions even when you disagree. If a convention seems actively harmful, surface it — don't fork silently.
 - When two patterns in the codebase contradict, pick one (more recent / more tested) and flag the other. Don't silently blend them.
-
-## Verification
-
-- "Done" means verified. Run the project's typecheck / lint / tests when the change is non-trivial. If a check was skipped (no command, env not set up, sandbox limits), say so explicitly.
 
 ## Knowledge organization
 
 Where to store things I should remember or that should persist across sessions:
 
-- **Cross-machine / cross-project rules and conventions** → this file (`CLAUDE.md`). Synced via dotfiles, so the same content applies on every machine.
-- **Project-specific knowledge** (this project's quirks, in-flight work, local context) → that project's `~/.claude/projects/<slug>/memory/`. **Local-only, not synced** across machines on purpose.
+- **Cross-machine / cross-project rules and conventions** → this file (`CLAUDE.md`), or `~/.claude/rules/` for rules that only apply to certain languages or paths. Synced via dotfiles, so the same content applies on every machine.
+- **Project-specific knowledge** (this project's quirks, in-flight work, local context) → auto memory at `~/.claude/projects/<slug>/memory/`. **Local-only, not synced** across machines on purpose.
 - **Personal info / env vars / machine-or-account-specific IDs** (e.g. `WISTERIA_GROUP`, ssh hosts, account names) → the sibling private repo `dotfiles-priv` at `../dotfiles-priv`. Sourced automatically by `common/zsh/template.zsh` when present.
 
 When the user says "remember X", pick the right home from the list above. If unsure, ask which scope.
