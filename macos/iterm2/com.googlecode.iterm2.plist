@@ -34,6 +34,8 @@ The script should do this: \(ai.prompt)</string>
 	<false/>
 	<key>AlternateMouseScroll</key>
 	<true/>
+	<key>ClickToSelectCommand</key>
+	<false/>
 	<key>Command</key>
 	<string></string>
 	<key>Custom Color Presets</key>

@@ -30,7 +30,9 @@
   "enabledPlugins": {
     "matsuolab-skills@matsuolab-skills": true,
     "frontend-design@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
+    "playwright@claude-plugins-official": true,
+    "robot-paper-skills@robot-paper-skills": true,
+    "humanizer@humanizer": true
   },
   "extraKnownMarketplaces": {
     "matsuolab-skills": {
@@ -44,6 +46,19 @@
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
+    },
+    "robot-paper-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Damin3927/robot-paper-skills"
+      },
+      "autoUpdate": true
+    },
+    "humanizer": {
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      }
     }
   },
   "effortLevel": "xhigh",
@@ -53,5 +68,6 @@
   "skipAutoPermissionPrompt": true,
   "commands": {
     "mcp": true
-  }
+  },
+  "inputNeededNotifEnabled": true
 }
