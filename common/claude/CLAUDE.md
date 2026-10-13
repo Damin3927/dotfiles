@@ -16,8 +16,13 @@ These preferences apply across all my projects. A project-local `CLAUDE.md` / `A
 
 ## Comments
 
-- Keep comments to a minimum or use no comments. Most code is self-descriptive — a comment that restates what the code already says is noise and just bloats the line count. Don't write those.
-- Reach for a clearer name or simpler structure before reaching for a comment.
+- Default to no comment. Reach for a clearer name or simpler structure first.
+- A comment is for what a careful reader could not work out from the code: a non-obvious constraint, a workaround for an external bug, a reason the obvious approach is wrong. One or two lines. If it needs a paragraph, it belongs in `docs/` or the PR description.
+- Never write:
+  - History: what the code used to do, why it changed, what came before ("Until now…", "Previously…"). That is the commit message.
+  - Restatements of the name, the type, or the next line.
+  - The same explanation in several places. Say it once and point to it.
+  - File-header essays describing what the module is for.
 
 ## Approach
 
