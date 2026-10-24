@@ -30,4 +30,7 @@ vim.g.chat_gpt_key = ""
 
 
 -- python location
-vim.g.python3_host_prog = "~/.pyenv/shims/python3"
+local pyenv_python = vim.fn.expand("~/.pyenv/shims/python3")
+if vim.fn.executable(pyenv_python) == 1 then
+  vim.g.python3_host_prog = pyenv_python
+end

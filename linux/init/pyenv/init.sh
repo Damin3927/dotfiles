@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PYENV_ROOT="${HOME}/.pyenv"
-append_to_path "${PYENV_ROOT}/bin"
-
-eval "$(pyenv init -)"
+# pyenv is optional on Linux (uv covers most needs); anyenv sets PYENV_ROOT when it is installed.
+if command -v pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi

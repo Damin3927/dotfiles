@@ -209,7 +209,7 @@ return {
     'mfussenegger/nvim-dap-python',
     dependencies = { 'mfussenegger/nvim-dap' },
     config = function()
-      require('dap-python').setup('~/.pyenv/shims/python3')
+      require('dap-python').setup(vim.g.python3_host_prog or 'python3')
     end,
   },
 
