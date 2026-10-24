@@ -60,7 +60,7 @@ end
 if vim.env.SSH_TTY and not vim.env.DISPLAY then
   local osc52 = require("vim.ui.clipboard.osc52")
   local function paste()
-    return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+    return { vim.fn.getreg('"', 1, true), vim.fn.getregtype('"') }
   end
   vim.g.clipboard = {
     name = "OSC 52",
