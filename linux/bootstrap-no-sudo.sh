@@ -29,6 +29,9 @@ append_init_script_to_zshrc() {
 
 append_init_script_to_zshrc
 
+# tmux setup
+bash "${SCRIPT_DIR}/../common/tmux/bootstrap.sh"
+
 # Claude Code setup
 bash "${SCRIPT_DIR}/../common/claude/bootstrap.sh"
 
