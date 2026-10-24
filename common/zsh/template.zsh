@@ -49,6 +49,9 @@ fi;
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# Tools installed without sudo (nvim, uv tools); must precede alias.zsh, which checks for nvim
+prepend_to_path "${HOME}/.local/bin"
+
 abs_path="$(get_abs_path $0)"
 source "${abs_path}/zsh/lazyenv.zsh"
 source "${abs_path}/zsh/zinit.zsh"

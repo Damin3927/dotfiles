@@ -2,7 +2,9 @@
 
 set -eu
 
-if ! command -v uv > /dev/null; then
+uv_bin="$(command -v uv || true)"
+if [ -z "${uv_bin}" ]; then
   curl -LsSf https://astral.sh/uv/install.sh | env UV_NO_MODIFY_PATH=1 sh
+  uv_bin="${HOME}/.local/bin/uv"
 fi
-"${HOME}/.local/bin/uv" tool install huggingface_hub
+"${uv_bin}" tool install huggingface_hub
