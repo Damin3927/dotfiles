@@ -22,4 +22,4 @@ pi pynvim
 pi openai
 
 # Configure rustup
-rustup component add rls rust-analysis rust-src
+rustup component add rust-analyzer rust-src

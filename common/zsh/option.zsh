@@ -23,6 +23,9 @@ setopt list_packed
 autoload colors
 zstyle ':completion:*' list-colors ''
 
+# macOS sets this in /etc/zshrc, but Ubuntu does not
+export HISTFILE="${HISTFILE:-${ZDOTDIR:-$HOME}/.zsh_history}"
+
 # histsize
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE

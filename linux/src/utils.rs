@@ -8,24 +8,18 @@ use std::{
 use crate::error::{Error, Result};
 
 pub fn is_installed(init_dir: &str, executable: &str) -> bool {
-    // Check if the command exists
-    if run_command_silently("zsh", &["-c", &format!("command -v {}", executable)]).is_ok() {
-        return true;
-    }
-
-    // Check for custom install checker script
+    // A custom checker takes precedence so that a package can reject an unsuitable
+    // binary that is already on PATH (e.g. an outdated apt build).
     let install_checker_path = format!("{}/{}/install_checker.sh", init_dir, executable);
     if Path::new(&install_checker_path).exists() {
         let check_command = format!(
             "source {} && is_{}_installed",
             install_checker_path, executable
         );
-        if run_command_silently("bash", &["-c", &check_command]).is_ok() {
-            return true;
-        }
+        return run_command_silently("bash", &["-c", &check_command]).is_ok();
     }
 
-    false
+    run_command_silently("zsh", &["-c", &format!("command -v {}", executable)]).is_ok()
 }
 
 pub fn get_lines_of_file(filename: &str) -> Result<Vec<String>> {

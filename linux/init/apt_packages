@@ -1,6 +1,5 @@
-bat
 jq
-neovim
+ncdu
 ripgrep
 shellcheck
 tmux
