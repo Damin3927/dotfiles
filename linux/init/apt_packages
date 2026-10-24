@@ -3,4 +3,5 @@ jq
 neovim
 ripgrep
 shellcheck
+tmux
 trash-cli
