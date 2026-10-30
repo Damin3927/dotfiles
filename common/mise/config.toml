@@ -1,0 +1,4 @@
+[settings]
+# The same week-long hold as pnpm's minimumReleaseAge, for versions such as
+# "26" or "latest". An exact pin still installs.
+minimum_release_age = "7d"

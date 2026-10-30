@@ -65,6 +65,12 @@ elif [ "$(uname)" = "Linux" ]; then
   source "${abs_path}/../linux/zsh/template.zsh"
 fi
 
+# After the OS init scripts, so the Node and pnpm mise selects come before
+# nodenv's shims.
+if command -v mise > /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
 
 # set editor
 export EDITOR='nvim'

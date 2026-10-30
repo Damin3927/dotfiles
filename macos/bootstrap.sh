@@ -26,6 +26,9 @@ append_init_script_to_zshrc
 # tmux setup
 bash ../common/tmux/bootstrap.sh
 
+# mise setup
+bash ../common/mise/bootstrap.sh
+
 # Claude Code setup
 . ../common/claude/bootstrap.sh
 
