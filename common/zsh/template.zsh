@@ -54,6 +54,7 @@ source "${abs_path}/zsh/lazyenv.zsh"
 source "${abs_path}/zsh/zinit.zsh"
 source "${abs_path}/zsh/alias.zsh"
 source "${abs_path}/zsh/option.zsh"
+source "${abs_path}/zsh/terminal.zsh"
 
 # load template.zsh depending on os
 if [ "$(uname)" = "Darwin" ]; then
